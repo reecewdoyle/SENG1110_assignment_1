@@ -73,6 +73,18 @@ public class UserInterface {
         }
       } while (choice != -1);
     }
-
+    
+    private void createProject() {
+      if (project1 == null || project2 == null || project3 == null) {
+        Project p = new Project();
+        // Collect projectId, name, type from user
+        // Normalise projectType (e.g., "basic" -> "Basic")
+        if (project1 == null) project1 = p;
+        else if (project2 == null) project2 = p;
+        else if (project3 == null) project3 = p;
+      } else {
+        System.out.println("Maximum projects reached!");
+      }
+    }
     
 }
