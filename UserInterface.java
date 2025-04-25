@@ -17,6 +17,10 @@ public class UserInterface {
     }
     
     public void run() {
+      project1 = null;
+      project2 = null;
+      project3 = null;
+
       scannerInput = new Scanner(System.in);
       Project p = new Project();
       System.out.print("Enter Project ID: ");
