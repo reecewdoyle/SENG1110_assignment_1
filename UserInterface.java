@@ -17,6 +17,13 @@ public class UserInterface {
     }
     
     public void run() {
+      scannerInput = new Scanner(System.in);
+      Project p = new Project();
+      System.out.print("Enter Project ID: ");
+      int id = scannerInput.nextInt();
+      p.setProjectId(id);
+      System.out.println("Project ID " + p.getProjectId());
+      
 		// Menu logic here
     }
     
