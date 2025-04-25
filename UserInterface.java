@@ -54,6 +54,24 @@ public class UserInterface {
       System.out.println("-1 Exit");
       System.out.println("Enter your choice: ");
       return scannerInput.nextInt();
+
+      int choice;
+      do {
+        choice = displayMenu();
+        switch (choice) {
+          case 1: createProject(); break;
+          case 2: removeProject(); break;
+          case 3: addTask(); break;
+          case 4: markTaskAsCompleted(); break;
+          case 5: removeTask(); break;
+          case 6: displayProjectDetails(); break;
+          case 7: displayCompletedTasks(); break;
+          case 8: filterTasksByType(); break;
+          case 9: displayProjectSummary(); break;
+          case -1: System.out.println("Thank you for using Project Managment System. Goodbye!"); break;
+          default: System.out.println("Invalid choice. Please try again.");
+        }
+      } while (choice != -1);
     }
 
     
