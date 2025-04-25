@@ -12,6 +12,8 @@ public class Task {
     
     
     // Getters and Setters
+    
+    // description
 
     public String getDescription() {
         return description;
@@ -22,4 +24,44 @@ public class Task {
     }
     
     // complete all other methods from here.
+
+    // taskId
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
+    }
+
+    // completed
+
+    public boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
+    }
+
+    // taskType
+
+    public char getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(char taskType) {
+        this.taskType = taskType;
+    }
+
+    // taskDuration
+
+    public int getTaskDuration() {
+        return taskDuration;
+    }
+
+    public void setTaskDuration(int taskDuration) {
+        this.taskDuration = taskDuration;
+    } 
 }
