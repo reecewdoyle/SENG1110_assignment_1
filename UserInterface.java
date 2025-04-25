@@ -73,7 +73,7 @@ public class UserInterface {
         }
       } while (choice != -1);
     }
-    
+
     private void createProject() {
       if (project1 == null || project2 == null || project3 == null) {
         Project p = new Project();
@@ -86,5 +86,21 @@ public class UserInterface {
         System.out.println("Maximum projects reached!");
       }
     }
+
+    private void removeProject() {}
+
+    private void addTask() {}
+
+    private void markTaskAsCompleted() {}
+
+    private void removeTask() {}
+
+    private void displayProjectDetails() {}
+
+    private void displayCompletedTasks() {}
+
+    private void filterTasksByType() {}
+
+    private void displayProjectSummary() {}
     
 }
