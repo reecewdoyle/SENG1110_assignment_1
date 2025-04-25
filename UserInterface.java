@@ -54,7 +54,7 @@ public class UserInterface {
       System.out.println("-1 Exit");
       System.out.println("Enter your choice: ");
       return scannerInput.nextInt();
-    
+    }
 
     
 }
