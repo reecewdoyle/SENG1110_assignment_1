@@ -22,21 +22,23 @@ public class UserInterface {
       project3 = null;
 
       scannerInput = new Scanner(System.in);
-      Project p = new Project();
-      System.out.print("Enter Project ID: ");
-      int id = scannerInput.nextInt();
-      p.setProjectId(id);
-      System.out.println("Project ID " + p.getProjectId());
 
-      System.out.print("Enter Project Name: ");
-      String projectName = scannerInput.nextLine();
-      p.setProjectName(projectName);
-      System.out.println("Project Name " + p.getProjectName());
+      // Test Code
+      // Project p = new Project();
+      // System.out.print("Enter Project ID: ");
+      // int id = scannerInput.nextInt();
+      // p.setProjectId(id);
+      // System.out.println("Project ID " + p.getProjectId());
 
-      System.out.print("Enter Project Type: ");
-      String projectType = scannerInput.nextLine();
-      p.setProjectType(projectType);
-      System.out.println("Project Type " + p.getProjectType());
+      // System.out.print("Enter Project Name: ");
+      // String projectName = scannerInput.nextLine();
+      // p.setProjectName(projectName);
+      // System.out.println("Project Name " + p.getProjectName());
+
+      // System.out.print("Enter Project Type: ");
+      // String projectType = scannerInput.nextLine();
+      // p.setProjectType(projectType);
+      // System.out.println("Project Type " + p.getProjectType());
 
       int choice;
       do {
@@ -76,12 +78,32 @@ public class UserInterface {
 
 
     }
-
+    
     private void createProject() {
       if (project1 == null || project2 == null || project3 == null) {
         Project p = new Project();
+        
         // Collect projectId, name, type from user
+        System.out.print("Enter Project ID: ");
+        int id = scannerInput.nextInt();
+        scannerInput.nextLine();
+        p.setProjectId(id);
+        System.out.println("Project ID " + p.getProjectId());
+  
+        System.out.print("Enter Project Name: ");
+        String projectName = scannerInput.nextLine();
+        p.setProjectName(projectName);
+        System.out.println("Project Name " + p.getProjectName());
+  
+        System.out.print("Enter Project Type: ");
+        String projectType = scannerInput.nextLine();
+        projectType = projectType.toLowerCase();
+        projectType = projectType.substring(0, 1).toUpperCase() + projectType.substring(1);
+        p.setProjectType(projectType);
+        System.out.println("Project Type " + p.getProjectType());
+
         // Normalise projectType (e.g., "basic" -> "Basic")
+
         if (project1 == null) project1 = p;
         else if (project2 == null) project2 = p;
         else if (project3 == null) project3 = p;
