@@ -82,11 +82,28 @@ public class UserInterface {
     private void createProject() {
       if (project1 == null || project2 == null || project3 == null) {
         Project p = new Project();
-        
         // Collect projectId, name, type from user
-        System.out.print("Enter Project ID: ");
-        int id = scannerInput.nextInt();
-        scannerInput.nextLine();
+        // Flag-controlled loop to ensure user enters a valid integer for Project ID
+        int id = 0;
+        boolean validProjectId = false;
+        
+        do {
+          System.out.print("Enter Project ID: ");
+          if (scannerInput.hasNext()) {
+            id = scannerInput.nextInt();
+            
+            if (id > 0) {
+              validProjectId = true; 
+            } else {
+              System.out.println("Project ID must be a positive whole number.");
+            }
+          } else {
+            System.out.println("Invalid input. Please enter a positive whole number.");
+            scannerInput.nextLine();
+          }
+        } while (!validProjectId);
+
+
         p.setProjectId(id);
         System.out.println("Project ID " + p.getProjectId());
   
@@ -97,12 +114,12 @@ public class UserInterface {
   
         System.out.print("Enter Project Type: ");
         String projectType = scannerInput.nextLine();
+        // Normalise projectType (e.g., "basic" -> "Basic")
         projectType = projectType.toLowerCase();
         projectType = projectType.substring(0, 1).toUpperCase() + projectType.substring(1);
         p.setProjectType(projectType);
         System.out.println("Project Type " + p.getProjectType());
 
-        // Normalise projectType (e.g., "basic" -> "Basic")
 
         if (project1 == null) project1 = p;
         else if (project2 == null) project2 = p;
