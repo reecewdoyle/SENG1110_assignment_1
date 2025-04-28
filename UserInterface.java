@@ -93,7 +93,14 @@ public class UserInterface {
             id = scannerInput.nextInt();
             
             if (id > 0) {
-              validProjectId = true; 
+              if (project1 != null && project1.getProjectId() == id
+                ||project2 != null && project2.getProjectId() == id
+                ||project3 != null && project3.getProjectId() == id) {
+
+                  System.out.println("Project ID already exists.");
+                } else {
+                  validProjectId = true; 
+                }
             } else {
               System.out.println("Project ID must be a positive whole number.");
             }

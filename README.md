@@ -36,11 +36,17 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 ### Project and Task Managment
 
 #### Creating a Project:
-    - [ ] User can create up to 3 projects with unique project ids
-    - [ ] No Duplicate ID's allowed
-    - [ ] Duplicate ID triggers error message
+    - [x] User can create up to 3 projects with unique project ids
+    - [x] No Duplicate ID's allowed
+    - [x] Duplicate ID triggers error message
     - [x] projectType is case-sensitive 
     - [x] "sMall", "SMALL" are normalised to "Small" and treated the same as "Small"
+#### Bonus Features (Optional, if I have time)
+    - [ ] Display existing project IDs when duplicate is entered
+    - [ ] Enforce 3-digit Project ID format
+
+
+    
 
 #### Adding a Task to a Project:
     - [ ] Tasks can be added to a specific project using projectId.
