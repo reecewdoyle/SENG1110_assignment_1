@@ -2,10 +2,10 @@
 Repo for assignment one so I can work in VSCode and document my progress with Github Commits. 
 
 ## Program Structure Requirements
-- [ ] Implement a menu-driven console application (TIO)
-- [ ] Users can create and manage up to 3 projects.
-- [ ] Number of tasks allowed per project depends on the project type configured in the Project Class. 
-- [ ] Must contain 3 classes. DONE
+    - [ ] Implement a menu-driven console application (TIO)
+    - [ ] Users can create and manage up to 3 projects.
+    - [ ] Number of tasks allowed per project depends on the project type configured in the Project Class. 
+    - [x] Must contain 3 classes.
 
 ### Task Class
 #### Attributes:
@@ -30,7 +30,7 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 #### Implements the menu-driven system for user interaction. All I/O must be done exclusively within this class. 
 #### Attributes:
     - [ ] project1, project2, project3 (Up to three seperate Project Objects, intially null)
-    - [ ] scannerInput (to handle input from the user)
+    - [x] scannerInput (to handle input from the user)
 
 ## Functionality Requirements
 ### Project and Task Managment
@@ -39,8 +39,8 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [ ] User can create up to 3 projects with unique project ids
     - [ ] No Duplicate ID's allowed
     - [ ] Duplicate ID triggers error message
-    - [ ] projectType is case-sensitive 
-    - [ ] "sMall", "SMALL" are normalised to "Small" and treated the same as "Small"
+    - [x] projectType is case-sensitive 
+    - [x] "sMall", "SMALL" are normalised to "Small" and treated the same as "Small"
 
 #### Adding a Task to a Project:
     - [ ] Tasks can be added to a specific project using projectId.
