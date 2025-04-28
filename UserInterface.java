@@ -146,7 +146,7 @@ public class UserInterface {
         boolean projectRemoved = false;
 
         do {
-          System.out.print("Enter the Project ID of the project you'd like to remove: ");
+          System.out.print("Enter the Project ID to remove: ");
 
           if (scannerInput.hasNextInt()) {
             id = scannerInput.nextInt();

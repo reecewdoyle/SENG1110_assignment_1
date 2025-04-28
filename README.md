@@ -56,7 +56,7 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [ ] 'a' is normalised to 'A' and treadted the same as 'A'
 
 #### Removing a Project:
-    - [ ] User can delete a project by entering it's projectId
+    - [x] User can delete a project by entering it's projectId
     - [ ] All tasks associated are removed
     - [ ] Invalid ID throws error.
 
