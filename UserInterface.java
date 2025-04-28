@@ -89,9 +89,10 @@ public class UserInterface {
         
         do {
           System.out.print("Enter Project ID: ");
-          if (scannerInput.hasNext()) {
+          if (scannerInput.hasNextInt()) {
             id = scannerInput.nextInt();
-            
+            scannerInput.nextLine();
+
             if (id > 0) {
               if (project1 != null && project1.getProjectId() == id
                 ||project2 != null && project2.getProjectId() == id

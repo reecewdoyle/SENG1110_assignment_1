@@ -2,8 +2,8 @@
 Repo for assignment one so I can work in VSCode and document my progress with Github Commits. 
 
 ## Program Structure Requirements
-    - [ ] Implement a menu-driven console application (TIO)
-    - [ ] Users can create and manage up to 3 projects.
+    - [x] Implement a menu-driven console application (TIO)
+    - [x] Users can create and manage up to 3 projects.
     - [ ] Number of tasks allowed per project depends on the project type configured in the Project Class. 
     - [x] Must contain 3 classes.
 
