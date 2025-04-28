@@ -174,7 +174,46 @@ public class UserInterface {
       }
     }
 
-    private void addTask() {}
+    private void addTask() {
+      if (project1 == null && project2 == null && project3 == null) {
+        System.out.println("There are no saved Projects to add a task to.");
+      } else {
+
+        int id = 0;
+        boolean projectSelected = false;
+        Project workingProject = null;
+
+
+        do {
+          System.out.print("Enter the Project ID to add a task to: ");
+
+          if (scannerInput.hasNextInt()) {
+            id = scannerInput.nextInt();
+            scannerInput.nextLine();
+
+            if (id > 0) {
+              if (project1 != null && project1.getProjectId() == id) {
+                workingProject = project1;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else if (project2 != null && project2.getProjectId() == id) {
+                workingProject = project2;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else if (project3 != null && project3.getProjectId() == id) {
+                workingProject = project3;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else {
+                System.out.println("No project with that ID exists.");
+              }
+            } else {
+              System.out.println("Project ID must be a positive number.");
+            }
+          }
+        } while (!projectSelected);
+      }
+    }
 
     private void markTaskAsCompleted() {}
 
