@@ -137,7 +137,42 @@ public class UserInterface {
       }
     }
 
-    private void removeProject() {}
+    private void removeProject() {
+      if (project1 == null && project2 == null && project3 == null) {
+        System.out.println("There are no saved Projects to remove.");
+      } else {
+
+        int id = 0;
+        boolean projectRemoved = false;
+
+        do {
+          System.out.print("Enter the Project ID of the project you'd like to remove: ");
+
+          if (scannerInput.hasNextInt()) {
+            id = scannerInput.nextInt();
+            scannerInput.nextLine();
+
+            if (id > 0) {
+              if (project1 != null && project1.getProjectId() == id) {
+                project1 = null;
+                System.out.println("Project removed");
+                projectRemoved = true;
+              } else if (project2 != null && project2.getProjectId() == id) {
+                project2 = null;
+                System.out.println("Project removed");
+                projectRemoved = true;
+              } else if (project3 != null && project3.getProjectId() == id) {
+                project3 = null;
+                System.out.println("Project removed");
+                projectRemoved = true;
+            } else {
+              System.out.println("Project ID must be a positive number.");
+            }
+          }
+        }
+        } while (!projectRemoved);
+      }
+    }
 
     private void addTask() {}
 
