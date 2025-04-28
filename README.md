@@ -9,19 +9,19 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 
 ### Task Class
 #### Attributes:
-    - [ ] taskID (int) - unique identifyer for the task
-    - [ ] description (String) - description of task
-    - [ ] completed (boolean) - indicates completion
-    - [ ] taskType (char) - Represents task nature 
+    - [x] taskID (int) - unique identifyer for the task
+    - [x] description (String) - description of task
+    - [x] completed (boolean) - indicates completion
+    - [x] taskType (char) - Represents task nature 
         - 'A' (Administrative), 'L'(Logistics), 'S' (Support)
-    - [ ] taskDuration (int) - Est or actual time spent in hours
+    - [x] taskDuration (int) - Est or actual time spent in hours
 
 ### Project Class
 #### Attributes:
-    - [ ] projectId (int) - unique identifyer for the task
-    - [ ] projectName (String) - Name of the project
-    - [ ] task1, task2, task3 (3 Task objects, initialised null)
-    - [ ] projectType (String) - Controls the max number of tasks allowed:
+    - [x] projectId (int) - unique identifyer for the task
+    - [x] projectName (String) - Name of the project
+    - [x] task1, task2, task3 (3 Task objects, initialised null)
+    - [x] projectType (String) - Controls the max number of tasks allowed:
         - Small = 1 Task
         - Medium = 2 Tasks
         - Large = 3 Tasks
@@ -29,7 +29,7 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 ### UserInterface Class
 #### Implements the menu-driven system for user interaction. All I/O must be done exclusively within this class. 
 #### Attributes:
-    - [ ] project1, project2, project3 (Up to three seperate Project Objects, intially null)
+    - [x] project1, project2, project3 (Up to three seperate Project Objects, intially null)
     - [x] scannerInput (to handle input from the user)
 
 ## Functionality Requirements
