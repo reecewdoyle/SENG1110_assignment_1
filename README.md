@@ -43,15 +43,15 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [x] "sMall", "SMALL" are normalised to "Small" and treated the same as "Small"
 #### Bonus Features (Optional, if I have time)
     - [ ] Display existing project IDs when duplicate is entered
-    - [ ] Enforce 3-digit Project ID format
+    - [x] Enforce 1-digit Project ID format
 
 
     
 
 #### Adding a Task to a Project:
-    - [ ] Tasks can be added to a specific project using projectId.
-    - [ ] unique taskID's within project
-    - [ ] Duplicate taskID's throw error
+    - [x] Tasks can be added to a specific project using projectId.
+    - [x] unique taskID's within project
+    - [x] Duplicate taskID's throw error
     - [ ] taskType ('A', 'S', 'L') is case-sensitive
     - [ ] 'a' is normalised to 'A' and treadted the same as 'A'
 
