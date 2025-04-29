@@ -316,8 +316,27 @@ public class UserInterface {
             scannerInput.next();
           }
         } while (!validDuration);
+
+          Task newTask = new Task();
+          newTask.setTaskId(taskId);
+          newTask.setDescription(description);
+          newTask.setTaskType(taskType);
+          newTask.setTaskDuration(duration);
+          newTask.setCompleted(false);
+
+          if (workingProject.getTask1() == null) {
+            workingProject.setTask1(newTask);
+          } else if (workingProject.getTask2() == null) {
+            workingProject.setTask2(newTask);
+          } else if (workingProject.getTask3() == null) {
+            workingProject.setTask3(newTask);
+          } else {
+            System.out.println("Error: No available task slots in this project.");
+          }
+          
+      }
     }
-}
+
 
       
     
