@@ -277,7 +277,25 @@ public class UserInterface {
             }
         } while (description.isEmpty());
         
+        char taskType = ' ';
+        boolean validTaskType = false;
 
+        do {
+          System.out.print("Enter task type (A = Admin, S = Support, L = Logistics): ");
+          String input = scannerInput.nextLine().trim().toUpperCase();
+
+          if (input.length() == 1) {
+            taskType = input.charAt(0);
+
+            if (taskType == 'A' || taskType == 'S' || taskType == 'L') {
+              validTaskType = true;
+            } else {
+              System.out.println("Invalid task type. Please enter A, S, or L.");
+            }
+          } else {
+            System.out.println("Please enter a single character: A, S, or L.");
+          }
+        } while (!validTaskType);
     }
 }
 
