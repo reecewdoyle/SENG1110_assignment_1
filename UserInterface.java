@@ -208,7 +208,7 @@ public class UserInterface {
                 System.out.println("No project with that ID exists.");
               }
             } else {
-              System.out.println("Project ID must be a positive number.");
+              System.out.println("Project ID must be a positive whole number.");
             }
           }
         } while (!projectSelected);
@@ -337,12 +337,51 @@ public class UserInterface {
       }
     }
 
+    private void markTaskAsCompleted() {
+      if (project1 == null && project2 == null && project3 == null) {
+        System.out.println("There is no saved projects to mark off tasks in.");
+      } else {
+        
+        int id = 0;
+        boolean projectSelected = false;
+        Project workingProject = null;        
 
-      
-    
-    
+        do {
+          System.out.println("Enter the Project ID where the completed task is located.");
+          
+          if (scannerInput.hasNextInt()) {
+            id = scannerInput.nextInt();
+            scannerInput.nextLine();
+            
+            if (id > 0) {
+              if (project1 != null && project1.getProjectId() == id) {
+                workingProject = project1;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else if (project2 != null && project2.getProjectId() == id) {
+                workingProject = project2;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else if (project3 != null && project3.getProjectId() == id) {
+                workingProject = project3;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else {
+                System.out.println("No project with that ID exists.");
+              }
+            } else {
+              System.out.println("Project ID must be a positive whole number.");
+            }
+          }
+        } while (!projectSelected);
 
-    private void markTaskAsCompleted() {}
+        System.out.println("Selected Project: " + workingProject.getProjectName());
+        System.out.println("Project Type: " + workingProject.getProjectType());
+
+
+
+      }
+    }
 
     private void removeTask() {}
 
