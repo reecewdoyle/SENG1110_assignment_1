@@ -296,6 +296,26 @@ public class UserInterface {
             System.out.println("Please enter a single character: A, S, or L.");
           }
         } while (!validTaskType);
+
+        int duration = 0;
+        boolean validDuration = false;
+
+        do {
+          System.out.print("Enter task duration in hours (positive whole number): ");
+          if (scannerInput.hasNextInt()) {
+            duration = scannerInput.nextInt();
+            scannerInput.nextLine();
+
+            if (duration > 0) {
+              validDuration = true;
+            } else {
+              System.out.println("Duration must be a positive number greater than 0.");
+            }
+          } else {
+            System.out.println("Invalid input. Please enter a whole number.");
+            scannerInput.next();
+          }
+        } while (!validDuration);
     }
 }
 
