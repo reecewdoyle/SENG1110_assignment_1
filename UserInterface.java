@@ -242,9 +242,50 @@ public class UserInterface {
                 break;
         }
 
-      }
-    
+        int taskId = 0;
+        boolean validTaskId = false;
+
+        do {
+
+          System.out.println("Enter Task ID (1-9): ");
+          if (scannerInput.hasNextInt()) {
+
+            taskId = scannerInput.nextInt();
+            scannerInput.nextLine();
+
+            if (taskId > 0 && taskId <= 9) {
+              if (workingProject.getTask1() == null &&
+                  workingProject.getTask2() == null &&
+                  workingProject.getTask3() == null) {
+
+                  validTaskId = true;
+              } else {
+                // Check for duplicate Task ID
+                if ((workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) ||
+                    (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) ||
+                    (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId)) {
+                    
+                    System.out.println("A Task with that ID already exists in this project. Please choose another.");  
+                  } else {
+                    validTaskId = true;
+                  }
+              }
+            } else {
+              System.out.println("Task ID must be a single-digit number between 1 and 9.");
+            }
+          } else {
+            System.out.println("Invalid input. Please enter a whole positive number.");
+            scannerInput.next();
+          }
+
+        } while (!validTaskId);      
+        
     }
+}
+
+      
+    
+    
 
     private void markTaskAsCompleted() {}
 
