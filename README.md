@@ -52,8 +52,8 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [x] Tasks can be added to a specific project using projectId.
     - [x] unique taskID's within project
     - [x] Duplicate taskID's throw error
-    - [ ] taskType ('A', 'S', 'L') is case-sensitive
-    - [ ] 'a' is normalised to 'A' and treadted the same as 'A'
+    - [x] taskType ('A', 'S', 'L') is case-sensitive
+    - [x] 'a' is normalised to 'A' and treadted the same as 'A'
 
 #### Removing a Project:
     - [x] User can delete a project by entering it's projectId
