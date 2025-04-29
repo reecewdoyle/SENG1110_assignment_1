@@ -162,6 +162,10 @@ public class UserInterface {
           if (scannerInput.hasNextInt()) {
             id = scannerInput.nextInt();
             scannerInput.nextLine();
+          } else {
+            System.out.println("Invalid input. Please enter a positive whole number.");
+            scannerInput.next();
+          }  
 
             if (id > 0) {
               if (project1 != null && project1.getProjectId() == id) {
@@ -177,10 +181,9 @@ public class UserInterface {
                 System.out.println("Project removed");
                 projectRemoved = true;
             } else {
-              System.out.println("Project ID must be a positive number.");
+              System.out.println("Project Id doesn't exist.");
             }
           }
-        }
         } while (!projectRemoved);
       }
     }
