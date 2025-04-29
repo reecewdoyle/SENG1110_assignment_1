@@ -144,16 +144,16 @@ Output:
 
 ### Menu System:
 #### Options:
-    - [ ] Create Projects
-    - [ ] Remove Projects
+    - [x] Create Projects
+    - [x] Remove Projects
     - [ ] Manage Tasks
     - [ ] View Tasks
     - [ ] View Project Task Duration Summary
-    - [ ] Exit
+    - [x] Exit
 
 #### Input Handling
-    - [ ] All string/char inputs are notmalised to standard case ("sMaLl" becomes "Small")
-    - [ ] Duplicate project/task ID's are rejected with error message
-    - [ ] Non-integer inputs for ID's, unrecognised project/task types, and unrecognised menu options trigger re-prompting
-    - [ ] Menu re-displays after each action until the user exits.
+    - [x] All string/char inputs are notmalised to standard case ("sMaLl" becomes "Small")
+    - [x] Duplicate project/task ID's are rejected with error message
+    - [x] Non-integer inputs for ID's, unrecognised project/task types, and unrecognised menu options trigger re-prompting
+    - [x] Menu re-displays after each action until the user exits.
     

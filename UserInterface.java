@@ -120,11 +120,22 @@ public class UserInterface {
         p.setProjectName(projectName);
         System.out.println("Project Name " + p.getProjectName());
   
-        System.out.print("Enter Project Type: ");
+        System.out.print("Enter Project Type (Small, Medium or Large): ");
         String projectType = scannerInput.nextLine();
+        
         // Normalise projectType (e.g., "basic" -> "Basic")
         projectType = projectType.toLowerCase();
         projectType = projectType.substring(0, 1).toUpperCase() + projectType.substring(1);
+        
+        // Validating that projectType can only be "Small", "Medium", or "Large"
+        while (!projectType.equals("Small") && !projectType.equals("Medium") && !projectType.equals("Large")) {
+          System.out.println("Invalid project type. Please enter Small, Medium, or Large:");
+          projectType = scannerInput.nextLine();
+          projectType = projectType.toLowerCase();
+          projectType = projectType.substring(0, 1).toUpperCase() + projectType.substring(1);
+        }
+
+
         p.setProjectType(projectType);
         System.out.println("Project Type " + p.getProjectType());
 
@@ -175,44 +186,45 @@ public class UserInterface {
     }
 
     private void addTask() {
-      if (project1 == null && project2 == null && project3 == null) {
-        System.out.println("There are no saved Projects to add a task to.");
-      } else {
+      // if (project1 == null && project2 == null && project3 == null) {
+      //   System.out.println("There are no saved Projects to add a task to.");
+      // } else {
 
-        int id = 0;
-        boolean projectSelected = false;
-        Project workingProject = null;
+      //   int id = 0;
+      //   boolean projectSelected = false;
+      //   Project workingProject = null;
 
 
-        do {
-          System.out.print("Enter the Project ID to add a task to: ");
+      //   do {
+      //     System.out.print("Enter the Project ID to add a task to: ");
 
-          if (scannerInput.hasNextInt()) {
-            id = scannerInput.nextInt();
-            scannerInput.nextLine();
+      //     if (scannerInput.hasNextInt()) {
+      //       id = scannerInput.nextInt();
+      //       scannerInput.nextLine();
 
-            if (id > 0) {
-              if (project1 != null && project1.getProjectId() == id) {
-                workingProject = project1;
-                System.out.println("Project " + id + " selected");
-                projectSelected = true;
-              } else if (project2 != null && project2.getProjectId() == id) {
-                workingProject = project2;
-                System.out.println("Project " + id + " selected");
-                projectSelected = true;
-              } else if (project3 != null && project3.getProjectId() == id) {
-                workingProject = project3;
-                System.out.println("Project " + id + " selected");
-                projectSelected = true;
-              } else {
-                System.out.println("No project with that ID exists.");
-              }
-            } else {
-              System.out.println("Project ID must be a positive number.");
-            }
-          }
-        } while (!projectSelected);
-      }
+      //       if (id > 0) {
+      //         if (project1 != null && project1.getProjectId() == id) {
+      //           workingProject = project1;
+      //           System.out.println("Project " + id + " selected");
+      //           projectSelected = true;
+      //         } else if (project2 != null && project2.getProjectId() == id) {
+      //           workingProject = project2;
+      //           System.out.println("Project " + id + " selected");
+      //           projectSelected = true;
+      //         } else if (project3 != null && project3.getProjectId() == id) {
+      //           workingProject = project3;
+      //           System.out.println("Project " + id + " selected");
+      //           projectSelected = true;
+      //         } else {
+      //           System.out.println("No project with that ID exists.");
+      //         }
+      //       } else {
+      //         System.out.println("Project ID must be a positive number.");
+      //       }
+      //     }
+      //   } while (!projectSelected);
+      // }
+    
     }
 
     private void markTaskAsCompleted() {}
