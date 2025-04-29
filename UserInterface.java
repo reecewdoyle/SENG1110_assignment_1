@@ -116,7 +116,12 @@ public class UserInterface {
         System.out.println("Project ID " + p.getProjectId());
   
         System.out.print("Enter Project Name: ");
-        String projectName = scannerInput.nextLine();
+        String projectName = scannerInput.nextLine().trim();
+
+        while (projectName.isEmpty()) {
+          System.out.println("Project name cannot be empty. Please enter a valid name:");
+          projectName = scannerInput.nextLine().trim();
+        }
         p.setProjectName(projectName);
         System.out.println("Project Name " + p.getProjectName());
   
