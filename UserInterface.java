@@ -58,8 +58,6 @@ public class UserInterface {
       System.out.println("-1 Exit");
       System.out.println("Enter your choice: ");
       return scannerInput.nextInt();
-
-
     }
     
     private void createProject() {
@@ -266,8 +264,20 @@ public class UserInterface {
             scannerInput.next();
           }
 
-        } while (!validTaskId);      
+        } while (!validTaskId); 
         
+        
+        String description = "";
+        do {
+            System.out.print("Enter task description: ");
+            description = scannerInput.nextLine().trim();
+        
+            if (description.isEmpty()) {
+                System.out.println("Description cannot be empty. Please enter something meaningful.");
+            }
+        } while (description.isEmpty());
+        
+
     }
 }
 
