@@ -378,7 +378,62 @@ public class UserInterface {
         System.out.println("Selected Project: " + workingProject.getProjectName());
         System.out.println("Project Type: " + workingProject.getProjectType());
 
+        switch (workingProject.getProjectType()) {
+          case "Small":
+              System.out.println("This project allows only 1 task.");
+              break;
+          case "Medium":
+              System.out.println("This project allows up to 2 tasks.");
+              break;
+          case "Large":
+              System.out.println("This project allows up to 3 tasks.");
+              break;
+        }
+        
+        if (workingProject.getTask1() == null &&
+            workingProject.getTask2() == null &&
+            workingProject.getTask3() == null) {
 
+            System.out.println("This project has no tasks to be marked as completed.");
+        } else {
+          
+          int taskId = 0;
+          boolean taskFound = false;
+
+          do {
+            System.out.println("Enter the Task ID to be marked as completed: ");
+
+            if (scannerInput.hasNextInt()){
+              taskId = scannerInput.nextInt();
+              scannerInput.nextLine();
+
+              if (taskId > 0 && taskId <= 9) {
+                if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
+                    workingProject.getTask1().setCompleted(true);
+                    System.out.println("Task marked as completed");
+                    taskFound = true;
+                } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
+                    workingProject.getTask2().setCompleted(true);
+                    System.out.println("Task marked as completed");
+                    taskFound = true;
+                } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
+                  workingProject.getTask3().setCompleted(true);
+                  System.out.println("Task marked as completed");
+                  taskFound = true;
+                } else {
+                  System.out.println("No task with that ID exists in this project.");
+                }
+
+              } else {
+                System.out.println("Task ID must be a positive number.");
+              }
+            } else {
+              System.out.println("Invalid input. Please input a whole number between 1-9.");
+              scannerInput.next();
+            }
+
+          } while (!taskFound);
+        }
 
       }
     }
