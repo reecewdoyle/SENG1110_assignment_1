@@ -431,14 +431,97 @@ public class UserInterface {
               System.out.println("Invalid input. Please input a whole number between 1-9.");
               scannerInput.next();
             }
-
           } while (!taskFound);
         }
-
       }
     }
 
-    private void removeTask() {}
+    private void removeTask() {
+      if (project1 == null && project2 == null && project3 == null) {
+        System.out.println("There is no saved projects to remove tasks from.");
+      } else {
+        
+        int id = 0;
+        boolean projectSelected = false;
+        Project workingProject = null;        
+
+        do {
+          System.out.println("Enter the Project ID where the task to be deleted is located.");
+          
+          if (scannerInput.hasNextInt()) {
+            id = scannerInput.nextInt();
+            scannerInput.nextLine();
+            
+            if (id > 0) {
+              if (project1 != null && project1.getProjectId() == id) {
+                workingProject = project1;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else if (project2 != null && project2.getProjectId() == id) {
+                workingProject = project2;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else if (project3 != null && project3.getProjectId() == id) {
+                workingProject = project3;
+                System.out.println("Project " + id + " selected");
+                projectSelected = true;
+              } else {
+                System.out.println("No project with that ID exists.");
+              }
+            } else {
+              System.out.println("Project ID must be a positive whole number.");
+            }
+          } else {
+            System.out.println("Invalid input. Please enter a whole positive number.");
+            scannerInput.next();
+          }
+        } while (!projectSelected);
+
+        System.out.println("Selected Project: " + workingProject.getProjectName());
+        System.out.println("Project Type: " + workingProject.getProjectType());
+
+        if (workingProject.getTask1() == null &&
+            workingProject.getTask2() == null &&
+            workingProject.getTask3() == null) {
+            System.out.println("This project has no tasks to remove.");
+        } else {
+
+          int taskId = 0;
+          boolean taskRemoved = false;
+
+          do {
+
+            System.out.println("Enter Task ID (1-9): ");
+            if (scannerInput.hasNextInt()) {
+
+              taskId = scannerInput.nextInt();
+              scannerInput.nextLine();
+
+              if (taskId > 0 && taskId <= 9) {
+                if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
+                    workingProject.setTask1(null);
+                    System.out.println("Task removed.");
+                    taskRemoved = true;
+                } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
+                           workingProject.setTask2(null);
+                           System.out.println("Task removed.");
+                           taskRemoved = true;
+                } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
+                           workingProject.setTask3(null);
+                           System.out.println("Task removed.");
+                           taskRemoved = true;
+                }
+              } else {
+                System.out.println("No task with that ID exists.");
+              }
+            } else {
+              System.out.println("Invalid input. Please enter a whole positive number.");
+            scannerInput.next();
+            } 
+          } while (!taskRemoved);
+        }
+      }
+    }
 
     private void displayProjectDetails() {}
 
