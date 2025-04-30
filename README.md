@@ -65,8 +65,8 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [ ] Invalid ID throws error.
 
 #### Removing a Task:
-    - [ ] User can delete task from project by entering a valid projectId or taskId.
-    - [ ] Invalid ID throws error. 
+    - [x] User can delete task from project by entering a valid projectId or taskId.
+    - [x] Invalid ID throws error. 
 
 ### Project Display
 #### Displaying all project details
