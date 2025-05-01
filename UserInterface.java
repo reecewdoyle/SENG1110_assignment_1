@@ -571,7 +571,62 @@ public class UserInterface {
       }
   }
 
-    private void displayCompletedTasks() {}
+  private void displayCompletedTasks() {
+    if (project1 == null && project2 == null && project3 == null) {
+        System.out.println("There are no saved projects to check for completed tasks.");
+    } else {
+        boolean foundTask = false;
+
+        if (project1 != null) {
+            if (project1.getTask1() != null && project1.getTask1().getCompleted()) {
+                displayTaskDetails(project1.getTask1());
+                foundTask = true;
+            }
+            if (project1.getTask2() != null && project1.getTask2().getCompleted()) {
+                displayTaskDetails(project1.getTask2());
+                foundTask = true;
+            }
+            if (project1.getTask3() != null && project1.getTask3().getCompleted()) {
+                displayTaskDetails(project1.getTask3());
+                foundTask = true;
+            }
+        }
+
+        if (project2 != null) {
+            if (project2.getTask1() != null && project2.getTask1().getCompleted()) {
+                displayTaskDetails(project2.getTask1());
+                foundTask = true;
+            }
+            if (project2.getTask2() != null && project2.getTask2().getCompleted()) {
+                displayTaskDetails(project2.getTask2());
+                foundTask = true;
+            }
+            if (project2.getTask3() != null && project2.getTask3().getCompleted()) {
+                displayTaskDetails(project2.getTask3());
+                foundTask = true;
+            }
+        }
+
+        if (project3 != null) {
+            if (project3.getTask1() != null && project3.getTask1().getCompleted()) {
+                displayTaskDetails(project3.getTask1());
+                foundTask = true;
+            }
+            if (project3.getTask2() != null && project3.getTask2().getCompleted()) {
+                displayTaskDetails(project3.getTask2());
+                foundTask = true;
+            }
+            if (project3.getTask3() != null && project3.getTask3().getCompleted()) {
+                displayTaskDetails(project3.getTask3());
+                foundTask = true;
+            }
+        }
+
+        if (!foundTask) {
+            System.out.println("No completed tasks found in any project.");
+        }
+    }
+}
 
     private void filterTasksByType() {}
 
