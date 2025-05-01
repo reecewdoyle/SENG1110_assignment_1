@@ -22,6 +22,7 @@ public class UserInterface {
       project3 = null;
 
       scannerInput = new Scanner(System.in);
+      seedDummyData();
 
       int choice;
       do {
@@ -183,6 +184,91 @@ public class UserInterface {
         } while (!projectRemoved);
       }
     }
+
+// ------------------------------------------------------------------------------ //
+        // SEED DATA//
+// ------------------------------------------------------------------------------ //
+            private void seedDummyData() {
+              Project p1 = new Project();
+              p1.setProjectId(101);
+              p1.setProjectName("Alpha");
+              p1.setProjectType("Small");
+
+              Task t1 = new Task();
+              t1.setTaskId(1);
+              t1.setDescription("Setup environment");
+              t1.setTaskType('A');
+              t1.setTaskDuration(5);
+              t1.setCompleted(true);
+
+              p1.setTask1(t1);
+
+              Project p2 = new Project();
+              p2.setProjectId(202);
+              p2.setProjectName("Beta");
+              p2.setProjectType("Medium");
+
+              Task t2 = new Task();
+              t2.setTaskId(2);
+              t2.setDescription("Write documentation");
+              t2.setTaskType('S');
+              t2.setTaskDuration(3);
+              t2.setCompleted(false);
+
+              Task t3 = new Task();
+              t3.setTaskId(3);
+              t3.setDescription("Prepare training session");
+              t3.setTaskType('L');
+              t3.setTaskDuration(4);
+              t3.setCompleted(true);
+
+              p2.setTask1(t2);
+              p2.setTask2(t3);
+
+              Project p3 = new Project();
+              p3.setProjectId(303);
+              p3.setProjectName("Gamma");
+              p3.setProjectType("Large");
+
+              Task t4 = new Task();
+              t4.setTaskId(4);
+              t4.setDescription("Logistics planning");
+              t4.setTaskType('L');
+              t4.setTaskDuration(6);
+              t4.setCompleted(false);
+
+              Task t5 = new Task();
+              t5.setTaskId(5);
+              t5.setDescription("Admin onboarding");
+              t5.setTaskType('A');
+              t5.setTaskDuration(2);
+              t5.setCompleted(false);
+
+              p3.setTask1(t4);
+              p3.setTask2(t5);
+
+              project1 = p1;
+              project2 = p2;
+              project3 = p3;
+
+              System.out.println("Dummy data loaded.");
+            }
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------ //
+        // SEED DATA//
+// ------------------------------------------------------------------------------ //
+
+
+
+
+
 
     private void addTask() {
       if (project1 == null && project2 == null && project3 == null) {
