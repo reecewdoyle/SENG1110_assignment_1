@@ -720,13 +720,16 @@ public class UserInterface {
             System.out.println("There are no saved projects to filter tasks from.");
             return;
         }
+
+        scannerInput.nextLine();
     
         char type = ' ';
         boolean validType = false;
-    
+        
         do {
             System.out.print("Enter task type to filter by (A = Admin, S = Support, L = Logistics): ");
             String input = scannerInput.nextLine().trim().toUpperCase();
+        
             if (input.length() == 1) {
                 type = input.charAt(0);
                 if (type == 'A' || type == 'S' || type == 'L') {
