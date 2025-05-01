@@ -69,12 +69,12 @@ public class UserInterface {
         boolean validProjectId = false;
         
         do {
-          System.out.print("Enter Project ID: ");
+          System.out.print("Enter Project ID (1-999): ");
           if (scannerInput.hasNextInt()) {
             id = scannerInput.nextInt();
             scannerInput.nextLine();
 
-            if (id > 0 && id <= 9) {
+            if (id > 0 && id <= 999) {
               if (project1 != null && project1.getProjectId() == id
                 ||project2 != null && project2.getProjectId() == id
                 ||project3 != null && project3.getProjectId() == id) {
@@ -84,11 +84,12 @@ public class UserInterface {
                   validProjectId = true; 
                 }
             } else {
-              System.out.println("Project ID must be a single-digit number between 1 and 9.");
+              System.out.println("Project ID must be a positive whole number between 1 and 999.");
+              
             }
           } else {
-            System.out.println("Invalid input. Please enter a positive whole number.");
-            scannerInput.nextLine();
+            System.out.println("Invalid input. Please enter a positive whole number between 1 and 999.");
+            scannerInput.next();
           }
         } while (!validProjectId);
 
