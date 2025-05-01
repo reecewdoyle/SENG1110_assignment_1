@@ -188,77 +188,78 @@ public class UserInterface {
 // ------------------------------------------------------------------------------ //
         // SEED DATA//
 // ------------------------------------------------------------------------------ //
-            private void seedDummyData() {
-              Project p1 = new Project();
-              p1.setProjectId(101);
-              p1.setProjectName("Alpha");
-              p1.setProjectType("Small");
+        private void seedDummyData() {
+          Project p1 = new Project();
+          p1.setProjectId(101);
+          p1.setProjectName("Apollo");
+          p1.setProjectType("Small");
 
-              Task t1 = new Task();
-              t1.setTaskId(1);
-              t1.setDescription("Setup environment");
-              t1.setTaskType('A');
-              t1.setTaskDuration(5);
-              t1.setCompleted(true);
+          Task t1 = new Task();
+          t1.setTaskId(1);
+          t1.setDescription("Initial planning");
+          t1.setTaskType('A');
+          t1.setTaskDuration(3);
+          t1.setCompleted(true);
+          p1.setTask1(t1);
 
-              p1.setTask1(t1);
+          Project p2 = new Project();
+          p2.setProjectId(102);
+          p2.setProjectName("Hermes");
+          p2.setProjectType("Medium");
 
-              Project p2 = new Project();
-              p2.setProjectId(202);
-              p2.setProjectName("Beta");
-              p2.setProjectType("Medium");
+          Task t2 = new Task();
+          t2.setTaskId(2);
+          t2.setDescription("Setup network");
+          t2.setTaskType('L');
+          t2.setTaskDuration(5);
+          t2.setCompleted(false);
 
-              Task t2 = new Task();
-              t2.setTaskId(2);
-              t2.setDescription("Write documentation");
-              t2.setTaskType('S');
-              t2.setTaskDuration(3);
-              t2.setCompleted(false);
+          Task t3 = new Task();
+          t3.setTaskId(3);
+          t3.setDescription("Admin briefing");
+          t3.setTaskType('A');
+          t3.setTaskDuration(2);
+          t3.setCompleted(true);
 
-              Task t3 = new Task();
-              t3.setTaskId(3);
-              t3.setDescription("Prepare training session");
-              t3.setTaskType('L');
-              t3.setTaskDuration(4);
-              t3.setCompleted(true);
+          p2.setTask1(t2);
+          p2.setTask2(t3);
 
-              p2.setTask1(t2);
-              p2.setTask2(t3);
+          Project p3 = new Project();
+          p3.setProjectId(103);
+          p3.setProjectName("Zeus");
+          p3.setProjectType("Large");
 
-              Project p3 = new Project();
-              p3.setProjectId(303);
-              p3.setProjectName("Gamma");
-              p3.setProjectType("Large");
+          Task t4 = new Task();
+          t4.setTaskId(4);
+          t4.setDescription("Logistics sync");
+          t4.setTaskType('L');
+          t4.setTaskDuration(6);
+          t4.setCompleted(false);
 
-              Task t4 = new Task();
-              t4.setTaskId(4);
-              t4.setDescription("Logistics planning");
-              t4.setTaskType('L');
-              t4.setTaskDuration(6);
-              t4.setCompleted(false);
+          Task t5 = new Task();
+          t5.setTaskId(5);
+          t5.setDescription("System config");
+          t5.setTaskType('S');
+          t5.setTaskDuration(4);
+          t5.setCompleted(false);
 
-              Task t5 = new Task();
-              t5.setTaskId(5);
-              t5.setDescription("Admin onboarding");
-              t5.setTaskType('A');
-              t5.setTaskDuration(2);
-              t5.setCompleted(false);
+          Task t6 = new Task();
+          t6.setTaskId(6);
+          t6.setDescription("Admin approvals");
+          t6.setTaskType('A');
+          t6.setTaskDuration(3);
+          t6.setCompleted(true);
 
-              p3.setTask1(t4);
-              p3.setTask2(t5);
+          p3.setTask1(t4);
+          p3.setTask2(t5);
+          p3.setTask3(t6);
 
-              project1 = p1;
-              project2 = p2;
-              project3 = p3;
+          project1 = p1;
+          project2 = p2;
+          project3 = p3;
 
-              System.out.println("Dummy data loaded.");
-            }
-
-
-
-
-
-
+          System.out.println("Extended dummy data loaded.");
+        }
 
 
 // ------------------------------------------------------------------------------ //
@@ -714,7 +715,93 @@ public class UserInterface {
     }
 }
 
-    private void filterTasksByType() {}
+      private void filterTasksByType() {
+        if (project1 == null && project2 == null && project3 == null) {
+            System.out.println("There are no saved projects to filter tasks from.");
+            return;
+        }
+    
+        char type = ' ';
+        boolean validType = false;
+    
+        do {
+            System.out.print("Enter task type to filter by (A = Admin, S = Support, L = Logistics): ");
+            String input = scannerInput.nextLine().trim().toUpperCase();
+            if (input.length() == 1) {
+                type = input.charAt(0);
+                if (type == 'A' || type == 'S' || type == 'L') {
+                    validType = true;
+                } else {
+                    System.out.println("Invalid type. Please enter A, S, or L.");
+                }
+            } else {
+                System.out.println("Please enter a single character: A, S, or L.");
+            }
+        } while (!validType);
+    
+        boolean foundType = false;
+    
+        // Check tasks in project1
+        if (project1 != null) {
+            if (project1.getTask1() != null && project1.getTask1().getTaskType() == type) {
+                System.out.println("From project: " + project1.getProjectName());
+                displayTaskDetails(project1.getTask1());
+                foundType = true;
+            }
+            if (project1.getTask2() != null && project1.getTask2().getTaskType() == type) {
+                System.out.println("From project: " + project1.getProjectName());
+                displayTaskDetails(project1.getTask2());
+                foundType = true;
+            }
+            if (project1.getTask3() != null && project1.getTask3().getTaskType() == type) {
+                System.out.println("From project: " + project1.getProjectName());
+                displayTaskDetails(project1.getTask3());
+                foundType = true;
+            }
+        }
+    
+        // Check tasks in project2
+        if (project2 != null) {
+            if (project2.getTask1() != null && project2.getTask1().getTaskType() == type) {
+                System.out.println("From project: " + project2.getProjectName());
+                displayTaskDetails(project2.getTask1());
+                foundType = true;
+            }
+            if (project2.getTask2() != null && project2.getTask2().getTaskType() == type) {
+                System.out.println("From project: " + project2.getProjectName());
+                displayTaskDetails(project2.getTask2());
+                foundType = true;
+            }
+            if (project2.getTask3() != null && project2.getTask3().getTaskType() == type) {
+                System.out.println("From project: " + project2.getProjectName());
+                displayTaskDetails(project2.getTask3());
+                foundType = true;
+            }
+        }
+    
+        // Check tasks in project3
+        if (project3 != null) {
+            if (project3.getTask1() != null && project3.getTask1().getTaskType() == type) {
+                System.out.println("From project: " + project3.getProjectName());
+                displayTaskDetails(project3.getTask1());
+                foundType = true;
+            }
+            if (project3.getTask2() != null && project3.getTask2().getTaskType() == type) {
+                System.out.println("From project: " + project3.getProjectName());
+                displayTaskDetails(project3.getTask2());
+                foundType = true;
+            }
+            if (project3.getTask3() != null && project3.getTask3().getTaskType() == type) {
+                System.out.println("From project: " + project3.getProjectName());
+                displayTaskDetails(project3.getTask3());
+                foundType = true;
+            }
+        }
+        if (!foundType) {
+            System.out.println("No tasks of type " + type + " were found.");
+        }
+    }
+    
 
     private void displayProjectSummary() {}
     
