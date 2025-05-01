@@ -32,7 +32,16 @@ public class UserInterface {
           case 3: addTask(); break;
           case 4: markTaskAsCompleted(); break;
           case 5: removeTask(); break;
-          case 6: displayProjectDetails(); break;
+          case 6:
+            if (project1 != null || project2 != null || project3 != null) {
+              if (project1 != null) displayProjectDetails(project1);
+              if (project2 != null) displayProjectDetails(project2);
+              if (project3 != null) displayProjectDetails(project3);
+            } else {
+              System.out.println("There are no saved projects to display.");
+            }
+              break; 
+        
           case 7: displayCompletedTasks(); break;
           case 8: filterTasksByType(); break;
           case 9: displayProjectSummary(); break;
@@ -524,7 +533,10 @@ public class UserInterface {
       }
     }
 
-    private void displayProjectDetails() {}
+    private void displayProjectDetails(Project p) {
+      // System.out.println("Displaying project: " + p.getProjectName());
+    }
+    
 
     private void displayCompletedTasks() {}
 
