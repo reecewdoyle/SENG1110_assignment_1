@@ -534,9 +534,42 @@ public class UserInterface {
     }
 
     private void displayProjectDetails(Project p) {
-      // System.out.println("Displaying project: " + p.getProjectName());
+      System.out.println("---------------------------------------------------");
+      System.out.println("Project ID: " + p.getProjectId());
+      System.out.println("Project Name: " + p.getProjectName());
+      System.out.println("Project Type: " + p.getProjectType());
+
+      // Count how many tasks are not null.
+      int taskCount = 0;
+      if (p.getTask1() != null) taskCount++;
+      if (p.getTask2() != null) taskCount++;
+      if (p.getTask3() != null) taskCount++;
+      System.out.println("Number of Tasks: " + taskCount);
+      System.out.println("Tasks:");
+
+      if (taskCount == 0) {
+        System.out.println("No tasks stored for this project.");
+      } else {
+        if (p.getTask1() != null) displayTaskDetails(p.getTask1());
+        if (p.getTask2() != null) displayTaskDetails(p.getTask2());
+        if (p.getTask3() != null) displayTaskDetails(p.getTask3());
+      }
+      System.out.println("---------------------------------------------------");
     }
     
+    private void displayTaskDetails(Task t) {
+      if (t != null) {
+          System.out.println("* Task ID: " + t.getTaskId() +
+                             ", Description: " + t.getDescription() +
+                             ", Type: " + t.getTaskType() +
+                             ", Duration: " + t.getTaskDuration());
+          if (t.getCompleted()) {
+              System.out.println("  Status: Completed");
+          } else {
+              System.out.println("  Status: Pending");
+          }
+      }
+  }
 
     private void displayCompletedTasks() {}
 
