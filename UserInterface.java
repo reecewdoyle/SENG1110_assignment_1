@@ -932,6 +932,7 @@ private void displayProjectDetails() {
  * Prompts the user to enter a valid project ID, validates it, and checks the selected project
  * for any tasks marked as completed. If completed tasks exist, they are displayed in a formatted
  * list. If none are found, an appropriate message is shown.
+ * Entering -1 returns to the main menu without displaying anything.
  */
 private void displayCompletedTasks() {
   // Check if there are any saved projects to search through
@@ -944,12 +945,19 @@ private void displayCompletedTasks() {
   int id = 0;
   boolean projectFound = false;
 
-  // Prompt user until a valid project ID is entered
+  // Prompt user until a valid project ID is entered or they choose to return
   do {
-      System.out.print("Enter the Project ID to view completed tasks: ");
+      System.out.print("Enter the Project ID to view completed tasks (-1 to return to menu): ");
+
       if (scannerInput.hasNextInt()) {
           id = scannerInput.nextInt();
           scannerInput.nextLine();
+
+          // Allow user to return to menu
+          if (id == -1) {
+              System.out.println("Returning to main menu...");
+              return;
+          }
 
           // Match input ID to a saved project
           if (project1 != null && project1.getProjectId() == id) {
