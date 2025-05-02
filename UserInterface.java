@@ -237,6 +237,12 @@ private void createProject() {
       System.out.print("Enter Project Type (Small, Medium or Large): ");
       String projectType = scannerInput.nextLine().trim();
 
+      // Ensure project type input is not empty before normalising and validating
+      while (projectType.isEmpty()) {
+        System.out.println("Project type cannot be empty. Please enter Small, Medium, or Large:");
+        projectType = scannerInput.nextLine().trim();
+      } 
+
       // Normalize case
       projectType = projectType.toLowerCase();
       projectType = projectType.substring(0, 1).toUpperCase() + projectType.substring(1);
