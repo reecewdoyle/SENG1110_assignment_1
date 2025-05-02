@@ -175,7 +175,7 @@ private void seedDummyData() {
   project2 = p2;
   project3 = p3;
 
-  System.out.println("Extended dummy data loaded.");
+  System.out.println("Dummy data loaded.");
 }
 
 // -------------------------------------------------------------------------
