@@ -267,59 +267,6 @@ private void createProject() {
   }
 }
 
-// // -------------------------------------------------------------------------
-// // REMOVE PROJECT
-// // -------------------------------------------------------------------------
-
-// /**
-//  * Removes a project from the system based on user-provided ID.
-//  * Validates user input and only removes if the ID matches an existing project.
-//  */
-// private void removeProject() {
-//   // Check if there are any projects to remove
-//   if (project1 == null && project2 == null && project3 == null) {
-//       System.out.println("There are no saved Projects to remove.");
-//   } else {
-//       int id = 0;
-//       boolean projectRemoved = false;
-
-//       // Loop until a valid project is removed or user chooses to exit
-//       do {
-//           System.out.print("Enter the Project ID to remove (or -1 to cancel): ");
-
-//           if (scannerInput.hasNextInt()) {
-//               id = scannerInput.nextInt();
-//               scannerInput.nextLine(); // Consume leftover newline
-//           } else {
-//               System.out.println("Invalid input. Please enter a positive whole number.");
-//               scannerInput.next(); // Clear invalid token
-//               continue; // Skip rest of loop
-//           }
-
-//           // Check ID is positive and remove matching project
-//           if (id > 0) {
-//               if (project1 != null && project1.getProjectId() == id) {
-//                   project1 = null;
-//                   System.out.println("Project removed");
-//                   projectRemoved = true;
-//               } else if (project2 != null && project2.getProjectId() == id) {
-//                   project2 = null;
-//                   System.out.println("Project removed");
-//                   projectRemoved = true;
-//               } else if (project3 != null && project3.getProjectId() == id) {
-//                   project3 = null;
-//                   System.out.println("Project removed");
-//                   projectRemoved = true;
-//               } else {
-//                   System.out.println("Project ID doesn't exist.");
-//               }
-//           } else {
-//               System.out.println("Project ID must be a positive whole number.");
-//           }
-//       } while (!projectRemoved);
-//   }
-// }
-
 // -------------------------------------------------------------------------
 // REMOVE PROJECT
 // -------------------------------------------------------------------------
