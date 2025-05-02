@@ -806,6 +806,195 @@ public class UserInterface {
     }
     
 
-    private void displayProjectSummary() {}
+    private void displayProjectSummary() {
+      if ((project1 == null || (project1.getTask1() == null && project1.getTask2() == null && project1.getTask3() == null)) &&
+          (project2 == null || (project2.getTask1() == null && project2.getTask2() == null && project2.getTask3() == null)) &&
+          (project3 == null || (project3.getTask1() == null && project3.getTask2() == null && project3.getTask3() == null))) {
+          System.out.println("No created tasks to report.");
+          return;
+      } else {
+
+        int totalAdmin = 0, countAdmin = 0;
+        int totalSupport = 0, countSupport = 0;
+        int totalLogistics = 0, countLogistics = 0;
+
+        if (project1 != null) {
+          Task t1 = project1.getTask1();
+          Task t2 = project1.getTask2();
+          Task t3 = project1.getTask3();
+
+          if (t1 != null) {
+            if (t1.getTaskType() == 'A') { totalAdmin += t1.getTaskDuration(); countAdmin++; }
+            if (t1.getTaskType() == 'S') { totalSupport += t1.getTaskDuration(); countSupport++; }
+            if (t1.getTaskType() == 'L') { totalLogistics += t1.getTaskDuration(); countLogistics++; }
+          }
+          if (t2 != null) {
+            if (t2.getTaskType() == 'A') { totalAdmin += t2.getTaskDuration(); countAdmin++; }
+            if (t2.getTaskType() == 'S') { totalSupport += t2.getTaskDuration(); countSupport++; }
+            if (t2.getTaskType() == 'L') { totalLogistics += t2.getTaskDuration(); countLogistics++; }
+          }
+          if (t3 != null) {
+            if (t3.getTaskType() == 'A') { totalAdmin += t3.getTaskDuration(); countAdmin++; }
+            if (t3.getTaskType() == 'S') { totalSupport += t3.getTaskDuration(); countSupport++; }
+            if (t3.getTaskType() == 'L') { totalLogistics += t3.getTaskDuration(); countLogistics++; }
+          }
+        }
+
+          if (project2 != null) {
+            Task t1 = project2.getTask1();
+            Task t2 = project2.getTask2();
+            Task t3 = project2.getTask3();
+        
+            if (t1 != null) {
+                if (t1.getTaskType() == 'A') { totalAdmin += t1.getTaskDuration(); countAdmin++; }
+                if (t1.getTaskType() == 'S') { totalSupport += t1.getTaskDuration(); countSupport++; }
+                if (t1.getTaskType() == 'L') { totalLogistics += t1.getTaskDuration(); countLogistics++; }
+            }
+            if (t2 != null) {
+                if (t2.getTaskType() == 'A') { totalAdmin += t2.getTaskDuration(); countAdmin++; }
+                if (t2.getTaskType() == 'S') { totalSupport += t2.getTaskDuration(); countSupport++; }
+                if (t2.getTaskType() == 'L') { totalLogistics += t2.getTaskDuration(); countLogistics++; }
+            }
+            if (t3 != null) {
+                if (t3.getTaskType() == 'A') { totalAdmin += t3.getTaskDuration(); countAdmin++; }
+                if (t3.getTaskType() == 'S') { totalSupport += t3.getTaskDuration(); countSupport++; }
+                if (t3.getTaskType() == 'L') { totalLogistics += t3.getTaskDuration(); countLogistics++; }
+            }
+        }
+        
+        if (project3 != null) {
+            Task t1 = project3.getTask1();
+            Task t2 = project3.getTask2();
+            Task t3 = project3.getTask3();
+        
+            if (t1 != null) {
+                if (t1.getTaskType() == 'A') { totalAdmin += t1.getTaskDuration(); countAdmin++; }
+                if (t1.getTaskType() == 'S') { totalSupport += t1.getTaskDuration(); countSupport++; }
+                if (t1.getTaskType() == 'L') { totalLogistics += t1.getTaskDuration(); countLogistics++; }
+            }
+            if (t2 != null) {
+                if (t2.getTaskType() == 'A') { totalAdmin += t2.getTaskDuration(); countAdmin++; }
+                if (t2.getTaskType() == 'S') { totalSupport += t2.getTaskDuration(); countSupport++; }
+                if (t2.getTaskType() == 'L') { totalLogistics += t2.getTaskDuration(); countLogistics++; }
+            }
+            if (t3 != null) {
+                if (t3.getTaskType() == 'A') { totalAdmin += t3.getTaskDuration(); countAdmin++; }
+                if (t3.getTaskType() == 'S') { totalSupport += t3.getTaskDuration(); countSupport++; }
+                if (t3.getTaskType() == 'L') { totalLogistics += t3.getTaskDuration(); countLogistics++; }
+            }
+        }
+
+        System.out.println("------------------------ Average Task Duration ------------------");
+
+        if (countAdmin > 0)
+            System.out.println("* Average task duration of administrative tasks is " + (totalAdmin / countAdmin) + " hours");
+        else
+            System.out.println("* No administrative tasks found.");
+        
+        if (countSupport > 0)
+            System.out.println("* Average task duration of support tasks is " + (totalSupport / countSupport) + " hours");
+        else
+            System.out.println("* No support tasks found.");
+        
+        if (countLogistics > 0)
+            System.out.println("* Average task duration of logistics tasks is " + (totalLogistics / countLogistics) + " hours");
+        else
+            System.out.println("* No logistics tasks found.");
+        
+        System.out.println("------------------------ Breakdown by Project ------------------");
+        
+        if (project1 != null) {
+            System.out.println("Project ID " + project1.getProjectId() + ":");
+
+            int admin = 0, countA = 0;
+            int support = 0, countS = 0;
+            int logistics = 0, countL = 0;
+
+            Task t1 = project1.getTask1();
+            Task t2 = project1.getTask2();
+            Task t3 = project1.getTask3();
+
+            if (t1 != null) {
+                if (t1.getTaskType() == 'A') { admin += t1.getTaskDuration(); countA++; }
+                if (t1.getTaskType() == 'S') { support += t1.getTaskDuration(); countS++; }
+                if (t1.getTaskType() == 'L') { logistics += t1.getTaskDuration(); countL++; }
+            }
+            if (t2 != null) {
+                if (t2.getTaskType() == 'A') { admin += t2.getTaskDuration(); countA++; }
+                if (t2.getTaskType() == 'S') { support += t2.getTaskDuration(); countS++; }
+                if (t2.getTaskType() == 'L') { logistics += t2.getTaskDuration(); countL++; }
+            }
+            if (t3 != null) {
+                if (t3.getTaskType() == 'A') { admin += t3.getTaskDuration(); countA++; }
+                if (t3.getTaskType() == 'S') { support += t3.getTaskDuration(); countS++; }
+                if (t3.getTaskType() == 'L') { logistics += t3.getTaskDuration(); countL++; }
+            }
+
+            if (countA > 0)
+                System.out.println("* Average task duration of administrative tasks is " + (admin / countA) + " hours");
+            else
+                System.out.println("* No administrative tasks found.");
+
+            if (countS > 0)
+                System.out.println("* Average task duration of support tasks is " + (support / countS) + " hours");
+            else
+                System.out.println("* No support tasks found.");
+
+            if (countL > 0)
+                System.out.println("* Average task duration of logistics tasks is " + (logistics / countL) + " hours");
+            else
+                System.out.println("* No logistics tasks found.");
+        }
+
+        if (project3 != null) {
+          System.out.println("Project ID " + project3.getProjectId() + ":");
+      
+          int admin = 0, countA = 0;
+          int support = 0, countS = 0;
+          int logistics = 0, countL = 0;
+      
+          Task t1 = project3.getTask1();
+          Task t2 = project3.getTask2();
+          Task t3 = project3.getTask3();
+      
+          if (t1 != null) {
+              if (t1.getTaskType() == 'A') { admin += t1.getTaskDuration(); countA++; }
+              if (t1.getTaskType() == 'S') { support += t1.getTaskDuration(); countS++; }
+              if (t1.getTaskType() == 'L') { logistics += t1.getTaskDuration(); countL++; }
+          }
+          if (t2 != null) {
+              if (t2.getTaskType() == 'A') { admin += t2.getTaskDuration(); countA++; }
+              if (t2.getTaskType() == 'S') { support += t2.getTaskDuration(); countS++; }
+              if (t2.getTaskType() == 'L') { logistics += t2.getTaskDuration(); countL++; }
+          }
+          if (t3 != null) {
+              if (t3.getTaskType() == 'A') { admin += t3.getTaskDuration(); countA++; }
+              if (t3.getTaskType() == 'S') { support += t3.getTaskDuration(); countS++; }
+              if (t3.getTaskType() == 'L') { logistics += t3.getTaskDuration(); countL++; }
+          }
+      
+          if (countA > 0)
+              System.out.println("* Average task duration of administrative tasks is " + (admin / countA) + " hours");
+          else
+              System.out.println("* No administrative tasks found.");
+      
+          if (countS > 0)
+              System.out.println("* Average task duration of support tasks is " + (support / countS) + " hours");
+          else
+              System.out.println("* No support tasks found.");
+      
+          if (countL > 0)
+              System.out.println("* Average task duration of logistics tasks is " + (logistics / countL) + " hours");
+          else
+              System.out.println("* No logistics tasks found.");
+      }
+
+        
+
+
+
+
+      } // Giant else block
+    }// displayAveragesThing
     
-}
+}// UserInterface
