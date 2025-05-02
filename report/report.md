@@ -10,13 +10,51 @@
 
 ## Design and Planning
 
-_Describe your initial plan for how the system would be structured. How did you decide on the use of three classes? How did you handle the differences between small, medium, and large projects? Were there any changes made after starting the implementation?_
+After completing the **HowToStartAssign1.pdf** tutorial, it was pretty clear what was required of this TIO. Build a method for each of the cases in the Menu switch statement. 
+
+I created a GitHub Repo to allow for an iterative desgin approach that could be rolled back as required, but also so I could track error handling through commits.  
 
 ---
 
 ## Development Process
 
-_Explain how you built the system from the ground up. Describe what features you worked on first, what order you tackled the requirements in, and why. Mention how you approached writing methods like createProject, addTask, or markTaskAsCompleted._
+### Setup
+Once the Git was setup, Project and Task classes were complete, I put the blank methods in the run() of the UserInterface class and worked on them in order.
+
+```java
+private void createProject() {}
+private void removeProject() {}
+private void addTask() {}
+// etc.....
+```
+### Task Tracking
+To track progress quickly, I created a README with all contraints and requirements of the assignment with boxes I could check off. 
+
+```markdown
+#### Removing a Project:
+    - [x] User can delete a project by entering it's projectId
+    - [ ] All tasks associated are removed
+```
+
+### Testing/Debugging
+I created Seed data method that would be poplulated the program with dummy data at startup, and a manual testing sequence that revealed every possible error message. This allowed me quickly debug without having to populate the program from scratch every iteration. I commited after every feature or fix.
+
+```java
+private void seedDummyData() {
+  // --- Project 1: Small ---
+  Project p1 = new Project();
+  p1.setProjectId(101);
+  p1.setProjectName("Apollo");
+  p1.setProjectType("Small");
+
+  Task t1 = new Task();
+  t1.setTaskId(1);
+  t1.setDescription("Initial planning");
+  t1.setTaskType('A'); // Admin
+  t1.setTaskDuration(3);
+  t1.setCompleted(true);
+}
+```
 
 ---
 
