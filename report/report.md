@@ -24,6 +24,10 @@ I spent approximately **26 hours** on the assignment:
 
 I encountered various input validation and menu interaction issues during development. To streamline debugging, I created a `seedDummyData()` method (left commented in the final submission) and a manual test walkthrough that triggered all error messages. This ensured edge cases were handled and user input was validated. Most bugs (**~70%**) were coding issues like scanner handling and off-by-one logic; the rest (**~30%**) were early design oversights. Regular GitHub commits tracked fixes and progress.
 
+> **NB:** The `seedDummyData()` method has been left in the final submission in a commented-out state.  
+> This was intentional, as it greatly assisted in manual testing and may assist during marking.  
+> It can be uncommented to quickly populate the program with valid sample data.
+
 ---
 
 ### Object-Oriented Class Relationships
@@ -61,7 +65,7 @@ The program uses three simple classes: `UserInterface` controls the flow of the 
 
 To the best of my knowledge, the only elements I used that weren't covered in the course materials were the `String.matches()` method with a regular expression to verify if a string contains only digits, and the `String.isEmpty()` method to check for empty input. These were essential for robust input validation during development.
 
-I adopted these solutions because I couldn't think of another way to solve the problems I was encountering during debugging. For example, to ensure that a string contained only digits, I used a regular expression like `input.matches("\\d+")`, which I found via Stack Overflow ([source](https://stackoverflow.com/questions/40561012/method-to-see-if-string-contains-all-digits?utm_source=chatgpt.com)). Similarly, to check if a string was empty, I used `input.isEmpty()` ([source](https://stackoverflow.com/questions/14721397/checking-if-a-string-is-empty-or-null-in-java?utm_source=chatgpt.com)).
+I adopted these solutions because I couldn't think of another way to solve the problems I was encountering during debugging. For example, to ensure that a string contained only digits, I used a regular expression like `input.matches("\\d+")`, which I found via Stack Overflow ([source](https://stackoverflow.com/questions/40561012/method-to-see-if-string-contains-all-digits)). Similarly, to check if a string was empty, I used `input.isEmpty()` ([source](https://stackoverflow.com/questions/14721397/checking-if-a-string-is-empty-or-null-in-java)).
 
 These methods may not have been explicitly covered in class, but they were straightforward, efficient, and necessary to ensure a smooth user experience. I discovered and applied them as part of my iterative development and troubleshooting process.
 
