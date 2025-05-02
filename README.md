@@ -90,7 +90,7 @@ tasks: 1 Tasks:
 ```
 
 #### Project Completed Tasks
-    - [ ] list only completed tasks within a projectId
+    - [x] list only completed tasks within a projectId
 
 Output:
 ```
@@ -130,10 +130,10 @@ Output:
 ```
 
 #### Handling No Data:
-    - [ ] Must throw error message when there has been no tasks created.
+    - [x] Must throw error message when there has been no tasks created.
 
 ### Capacity Constraints
-    - [ ] Max tasks per project type:
+    - [x] Max tasks per project type:
         - Small = 1
         - Medium = 2
         - Large = 3
@@ -142,9 +142,9 @@ Output:
 #### Options:
     - [x] Create Projects
     - [x] Remove Projects
-    - [ ] Manage Tasks
-    - [ ] View Tasks
-    - [ ] View Project Task Duration Summary
+    - [x] Manage Tasks
+    - [x] View Tasks
+    - [x] View Project Task Duration Summary
     - [x] Exit
 
 #### Input Handling
