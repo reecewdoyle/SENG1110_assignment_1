@@ -31,10 +31,10 @@ public class UserInterface {
     // -------------------------------------------------------------------------
 
     /**
-     * Initializes projects and scanner, loads seed data, and handles user menu input.
+     * Initialises projects and scanner, loads seed data, and handles user menu input.
      */
     public void run() {
-        // Initialize project slots
+        // Initialise project slots
         project1 = null;
         project2 = null;
         project3 = null;
@@ -74,6 +74,7 @@ public class UserInterface {
 
     /**
      * Displays the main menu and returns the user's selected option.
+     * Prevents crashing from invalid or empty input
      * @return The menu option selected by the user.
      */
     private int displayMenu() {
@@ -89,7 +90,14 @@ public class UserInterface {
         System.out.println("9. Display project summary");
         System.out.println("-1 Exit");
         System.out.print("Enter your choice: ");
-        return scannerInput.nextInt();
+
+        if (scannerInput.hasNextInt()) {
+          int choice = scannerInput.nextInt();
+          return choice;
+        } else {
+          scannerInput.nextLine();
+          return 0;
+        }
     }
 
 // -------------------------------------------------------------------------
