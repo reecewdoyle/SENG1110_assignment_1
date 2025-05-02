@@ -1154,16 +1154,21 @@ private void filterTasksByType() {
   }
 }
     
+// -------------------------------------------------------------------------
+// DISPLAY PROJECT SUMMARY
+// -------------------------------------------------------------------------
+
 /**
- * Displays a summary report of task durations and counts for all projects.
- * Includes:
- * - Average duration of each task type across all projects.
- * - Breakdown of task durations per project.
- * 
- * Assumes only three possible task types:
- * A = Admin
- * S = Support
- * L = Logistics
+ * Displays a summary report of task durations across all saved projects.
+ *
+ * Report includes:
+ * - Average duration of each task type (Admin, Support, Logistics) across all projects.
+ * - A breakdown of task durations by individual project.
+ *
+ * Task types:
+ * - A = Admin
+ * - S = Support
+ * - L = Logistics
  */
 private void displayProjectSummary() {
   // Check if any tasks exist across all projects
