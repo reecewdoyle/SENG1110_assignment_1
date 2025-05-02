@@ -425,7 +425,7 @@ private void addTask() {
               System.out.println("Project ID must be a positive whole number.");
           }
       } else {
-          System.out.println("Invalid input. Please enter a number.");
+          System.out.println("Invalid input. Please enter a positive whole number.");
           scannerInput.next(); // Clear invalid token
       }
   } while (!projectSelected);
@@ -493,7 +493,14 @@ private void addTask() {
 
   do {
       System.out.print("Enter task type (A = Admin, S = Support, L = Logistics): ");
-      String input = scannerInput.nextLine().trim().toUpperCase();
+      String input = scannerInput.nextLine().trim();
+
+      if (input.isEmpty()) {
+        System.out.println("Task type cannot be empty. Please enter A, S, or L.");
+        continue;
+      }
+
+      input = input.toUpperCase();
 
       if (input.length() == 1) {
           taskType = input.charAt(0);
