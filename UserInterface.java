@@ -63,7 +63,7 @@ public class UserInterface {
                     System.out.println("Thank you for using Project Management System. Goodbye!");
                     break;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Invalid choice. Please enter a number");
             }
         } while (choice != -1);
     }
@@ -78,20 +78,39 @@ public class UserInterface {
      * @return The menu option selected by the user.
      */
     private int displayMenu() {
-        System.out.println("\n========== PROJECT MANAGEMENT SYSTEM ==========");
-        System.out.println("1. Create a new project");
-        System.out.println("2. Remove a project");
-        System.out.println("3. Add a task to a project");
-        System.out.println("4. Mark a task as completed");
-        System.out.println("5. Remove a task from a project");
-        System.out.println("6. Display all project details");
-        System.out.println("7. Display completed tasks");
-        System.out.println("8. Filter tasks by type");
-        System.out.println("9. Display project summary");
-        System.out.println("-1 Exit");
-        System.out.print("Enter your choice: ");
-        return scannerInput.nextInt();
-    }
+      System.out.println("\n========== PROJECT MANAGEMENT SYSTEM ==========");
+      System.out.println("1. Create a new project");
+      System.out.println("2. Remove a project");
+      System.out.println("3. Add a task to a project");
+      System.out.println("4. Mark a task as completed");
+      System.out.println("5. Remove a task from a project");
+      System.out.println("6. Display all project details");
+      System.out.println("7. Display completed tasks");
+      System.out.println("8. Filter tasks by type");
+      System.out.println("9. Display project summary");
+      System.out.println("-1 Exit");
+      System.out.print("Enter your choice: ");
+  
+      if (scannerInput.hasNextLine()) {
+          String input = scannerInput.nextLine().trim();
+  
+          if (input.isEmpty()) {
+              System.out.println("Error!");
+              return 0;
+          }
+  
+          boolean allDigits = input.matches("-?\\d+");
+          if (allDigits) {
+              return Integer.parseInt(input);
+          } else {
+              System.out.println("Error!");
+              return 0;
+          }
+      }
+  
+      // fallback
+      return 0;
+  }
 
 // -------------------------------------------------------------------------
 // SEED DATA INITIALISATION
