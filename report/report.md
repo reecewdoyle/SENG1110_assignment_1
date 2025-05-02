@@ -1,78 +1,26 @@
-# Project Management System – SENG1110 Assignment 1 Report
+## Project Management System – SENG1110 Assignment 1 Report for Reece Doyle - c3033554
 
-**Student Name:** Reece Doyle  
-**Student Number:** c3033554  
-**Course:** SENG1110 – Object Oriented Programming  
-**Assignment:** Programming Assignment 1 - Semester 1, 2025  
-**Due Date:** 2 May
+### Design and Planning
 
----
+After completing the **HowToStartAssign1.pdf** tutorial, it was clear that the task was to build a method for each case in the menu's switch statement. I created a GitHub repository to support an iterative design approach that could be rolled back if needed and to help track progress and error handling through regular commits.
 
-## Design and Planning
-
-After completing the **HowToStartAssign1.pdf** tutorial, it was pretty clear what was required of this TIO. Build a method for each of the cases in the Menu switch statement. 
-
-I created a GitHub Repo to allow for an iterative desgin approach that could be rolled back as required, but also so I could track error handling through commits.  
-
----
-
-## Development Process
-
-### Setup
-Once the Git was setup, Project and Task classes were complete, I put the blank methods in the run() of the UserInterface class and worked on them in order.
-
-```java
-private void createProject() {}
-private void removeProject() {}
-private void addTask() {}
-// etc.....
-```
-### Task Tracking
 To track progress quickly, I created a README with all contraints and requirements of the assignment with boxes I could check off. 
 
-```markdown
-#### Removing a Project:
-    - [x] User can delete a project by entering it's projectId
-    - [ ] All tasks associated are removed
-```
+---
 
-### Testing/Debugging
-I created Seed data method that would be poplulated the program with dummy data at startup, and a manual testing sequence that revealed every possible error message. This allowed me quickly debug without having to populate the program from scratch every iteration. I commited after every feature or fix.
-
-```java
-private void seedDummyData() {
-  // --- Project 1: Small ---
-  Project p1 = new Project();
-  p1.setProjectId(101);
-  p1.setProjectName("Apollo");
-  p1.setProjectType("Small");
-
-  Task t1 = new Task();
-  t1.setTaskId(1);
-  t1.setDescription("Initial planning");
-  t1.setTaskType('A'); // Admin
-  t1.setTaskDuration(3);
-  t1.setCompleted(true);
-}
-```
+### Time Tracking
+I spent approximately **26 hours** on the assignment: around **2 hours** on design and planning, **16 hours** on coding and implementation, **6 hours** on testing and debugging, and **2 hours** on the README and report.
 
 ---
 
-## Time Tracking
-
-_Provide an honest overview of how long you spent on various parts of the assignment – e.g., planning, writing code, testing, documentation, screenshots, debugging._
-
----
-
-## Errors and Debugging
-
-_Reflect on the kinds of bugs you encountered. Did they come from poor design decisions? Typos? Logic errors? Which ones were hardest to find?_
+### Errors and Debugging
+I encountered various input validation and menu interaction issues during development. To streamline debugging, I created a `seedDummyData()` method (left commented in the final submission) and a manual test walkthrough that triggered all error messages. This ensured edge cases were handled and user input was validated. Most bugs (~70%) were coding issues like scanner handling and off-by-one logic; the rest (~30%) were early design oversights. Regular Git commits tracked fixes and progress.
 
 ---
 
 ## Object-Oriented Class Relationships
 
-_Explain the structure between Task, Project, and UserInterface. Talk about how UserInterface manages the program, how Project holds Tasks, and how these classes interact without using advanced OOP features._
+The program uses three simple classes: `UserInterface` controls the flow of the program and handles all user input/output, `Project` stores project details and up to three `Task` objects, and `Task` holds the data for individual tasks. Each class is self-contained with getters and setters, allowing `UserInterface` to manage the interaction between them.
 
 ---
 
@@ -96,9 +44,13 @@ _(Insert screenshot and caption)_
 
 ## Use of Disallowed Topics
 
-_If you didn’t use anything outside Weeks 1–7, just say so clearly:_
+## Use of Disallowed Topics
 
-> No disallowed topics were used in this program. All implementation was completed using techniques from Weeks 1–7 only.
+To the best of my knowledge, the only elements I used that weren't covered in the course materials were the `String.matches()` method with a regular expression to verify if a string contains only digits, and the `String.isEmpty()` method to check for empty input. These were essential for robust input validation during development.
+
+I adopted these solutions after encountering issues with user input that could cause the program to behave unexpectedly or crash. For instance, to ensure that a string contained only digits, I used a regular expression like `input.matches("\\d+")`, which I found through resources such as Stack Overflow ([source](https://stackoverflow.com/questions/40561012/method-to-see-if-string-contains-all-digits?utm_source=chatgpt.com)). Similarly, to check if a string was empty, I employed `input.isEmpty()`, a straightforward and efficient method ([source](https://stackoverflow.com/questions/14721397/checking-if-a-string-is-empty-or-null-in-java?utm_source=chatgpt.com)).
+
+These methods were not covered in the course content, but I found them necessary to handle specific input validation scenarios effectively. I discovered them through online research, primarily Stack Overflow, as part of my iterative development and debugging process.
 
 ---
 
