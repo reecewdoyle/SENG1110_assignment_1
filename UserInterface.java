@@ -345,7 +345,7 @@ private void removeProject() {
           } else {
               // Handle non-integer input
               System.out.println("Invalid input. Please enter a positive whole number (1-999).");
-              scannerInput.next(); // Clear invalid token
+              scannerInput.nextLine(); // Clear invalid token
           }
       } while (!projectRemoved);
   }
@@ -414,6 +414,15 @@ private void addTask() {
           break;
   }
 
+  // Check if there is room to add a task
+  if (
+      (workingProject.getProjectType().equals("Small") && workingProject.getTask1() != null) ||
+      (workingProject.getProjectType().equals("Medium") && workingProject.getTask1() != null && workingProject.getTask2() != null) ||
+      (workingProject.getProjectType().equals("Large") && workingProject.getTask1() != null && workingProject.getTask2() != null && workingProject.getTask3() != null)
+  ) {
+      System.out.println("\nNo available task slots in this project.");
+      return;
+  }
   // Task ID input and validation
   int taskId = 0;
   boolean validTaskId = false;
@@ -639,7 +648,7 @@ private void markTaskAsCompleted() {
           }
       } else {
           System.out.println("Invalid input. Please enter a number.");
-          scannerInput.next(); // Clear invalid input
+          scannerInput.nextLine(); // Clear invalid input
       }
   } while (!taskFound);
 }
