@@ -12,7 +12,11 @@ To track progress efficiently, I created a README with all constraints and requi
 
 ### Time Tracking
 
-I spent approximately **26 hours** on the assignment: around **2 hours** on design and planning, **16 hours** on coding and implementation, **6 hours** on testing and debugging, and **2 hours** on the README and report.
+I spent approximately **26 hours** on the assignment:
+- **2 hours** on design and planning  
+- **16 hours** on coding and implementation  
+- **6 hours** on testing and debugging  
+- **2 hours** on the README and report  
 
 ---
 
