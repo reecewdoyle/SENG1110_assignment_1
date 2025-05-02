@@ -742,13 +742,13 @@ private void removeTask() {
 private void displayProjectDetails() {
   // If no projects exist, notify user and exit
   if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("There are no saved projects to display.");
+      System.out.println("\nThere are no saved projects to display.");
       return;
   }
 
   // ------------------ Project 1 ------------------
   if (project1 != null) {
-      System.out.println("---------------------------------------------------");
+      System.out.println("\n---------------------------------------------------");
       System.out.println("Project ID: " + project1.getProjectId());
       System.out.println("Project Name: " + project1.getProjectName());
       System.out.println("Project Type: " + project1.getProjectType());
@@ -789,7 +789,7 @@ private void displayProjectDetails() {
 
   // ------------------ Project 2 ------------------
   if (project2 != null) {
-      System.out.println("---------------------------------------------------");
+      System.out.println("\n---------------------------------------------------");
       System.out.println("Project ID: " + project2.getProjectId());
       System.out.println("Project Name: " + project2.getProjectName());
       System.out.println("Project Type: " + project2.getProjectType());
@@ -830,7 +830,7 @@ private void displayProjectDetails() {
 
   // ------------------ Project 3 ------------------
   if (project3 != null) {
-      System.out.println("---------------------------------------------------");
+      System.out.println("\n---------------------------------------------------");
       System.out.println("Project ID: " + project3.getProjectId());
       System.out.println("Project Name: " + project3.getProjectName());
       System.out.println("Project Type: " + project3.getProjectType());
@@ -865,11 +865,11 @@ private void displayProjectDetails() {
 
       // No tasks check
       if (project3.getTask1() == null && project3.getTask2() == null && project3.getTask3() == null) {
-          System.out.println("No tasks stored for this project.");
+          System.out.println("No tasks stored for this project.\n");
       }
   }
 
-  System.out.println("---------------------------------------------------");
+  System.out.println("---------------------------------------------------\n");
 }
 
 // -------------------------------------------------------------------------
