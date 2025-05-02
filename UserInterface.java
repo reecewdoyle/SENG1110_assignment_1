@@ -341,7 +341,7 @@ private void removeProject() {
  */
 private void addTask() {
   if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("There are no saved Projects to add a task to.");
+      System.out.println("\nThere are no saved Projects to add a task to.");
       return;
   }
 
@@ -351,7 +351,7 @@ private void addTask() {
 
   // Prompt user to select a project by ID
   do {
-      System.out.print("Enter the Project ID to add a task to: ");
+      System.out.print("\nEnter the Project ID to add a task to: ");
 
       if (scannerInput.hasNextInt()) {
           id = scannerInput.nextInt();
@@ -379,7 +379,7 @@ private void addTask() {
       }
   } while (!projectSelected);
 
-  System.out.println("Selected Project: " + workingProject.getProjectName());
+  System.out.println("\nSelected Project: " + workingProject.getProjectName());
   System.out.println("Project Type: " + workingProject.getProjectType());
 
   switch (workingProject.getProjectType()) {
@@ -399,7 +399,7 @@ private void addTask() {
   boolean validTaskId = false;
 
   do {
-      System.out.print("Enter Task ID (1-9): ");
+      System.out.print("\nEnter Task ID (1-9): ");
 
       if (scannerInput.hasNextInt()) {
           taskId = scannerInput.nextInt();
@@ -429,7 +429,7 @@ private void addTask() {
   // Task description input
   String description;
   do {
-      System.out.print("Enter task description: ");
+      System.out.print("\nEnter task description: ");
       description = scannerInput.nextLine().trim();
       if (description.isEmpty()) {
           System.out.println("Description cannot be empty.");
@@ -441,7 +441,7 @@ private void addTask() {
   boolean validTaskType = false;
 
   do {
-      System.out.print("Enter task type (A = Admin, S = Support, L = Logistics): ");
+      System.out.print("\nEnter task type (A = Admin, S = Support, L = Logistics): ");
       String input = scannerInput.nextLine().trim();
 
       if (input.isEmpty()) {
@@ -468,7 +468,7 @@ private void addTask() {
   boolean validDuration = false;
 
   do {
-      System.out.print("Enter task duration in hours (positive whole number): ");
+      System.out.print("\nEnter task duration in hours (positive whole number): ");
       if (scannerInput.hasNextInt()) {
           duration = scannerInput.nextInt();
           scannerInput.nextLine();
@@ -499,7 +499,7 @@ private void addTask() {
   } else if (workingProject.getTask3() == null) {
       workingProject.setTask3(newTask);
   } else {
-      System.out.println("Error: No available task slots in this project.");
+      System.out.println("\nError: No available task slots in this project.");
   }
 }
 
@@ -516,7 +516,7 @@ private void addTask() {
 private void markTaskAsCompleted() {
   // Check if there are any projects to work with
   if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("There are no saved projects to mark off tasks in.");
+      System.out.println("\nThere are no saved projects to mark off tasks in.");
       return;
   }
 
@@ -527,7 +527,7 @@ private void markTaskAsCompleted() {
   // ------------------ Select Project ------------------
   // Prompt user for a valid project ID
   do {
-      System.out.print("Enter the Project ID where the completed task is located: ");
+      System.out.print("\nEnter the Project ID where the completed task is located: ");
 
       if (scannerInput.hasNextInt()) {
           id = scannerInput.nextInt();
@@ -557,7 +557,7 @@ private void markTaskAsCompleted() {
   } while (!projectSelected);
 
   // ------------------ Display Project Info ------------------
-  System.out.println("Selected Project: " + workingProject.getProjectName());
+  System.out.println("\nSelected Project: " + workingProject.getProjectName());
   System.out.println("Project Type: " + workingProject.getProjectType());
 
   switch (workingProject.getProjectType()) {
@@ -576,7 +576,7 @@ private void markTaskAsCompleted() {
   if (workingProject.getTask1() == null &&
       workingProject.getTask2() == null &&
       workingProject.getTask3() == null) {
-      System.out.println("This project has no tasks to be marked as completed.");
+      System.out.println("\nThis project has no tasks to be marked as completed.");
       return;
   }
 
@@ -585,7 +585,7 @@ private void markTaskAsCompleted() {
   boolean taskFound = false;
 
   do {
-      System.out.print("Enter the Task ID to be marked as completed (-1 to return to menu): ");
+      System.out.print("\nEnter the Task ID to be marked as completed (-1 to return to menu): ");
 
       if (scannerInput.hasNextInt()) {
           taskId = scannerInput.nextInt();
@@ -593,7 +593,7 @@ private void markTaskAsCompleted() {
 
           if (taskId == -1) {
               // User chose to exit
-              System.out.println("Returning to main menu...");
+              System.out.println("\nReturning to main menu...");
               return;
           }
 
@@ -601,15 +601,15 @@ private void markTaskAsCompleted() {
               // Check each task slot for matching ID
               if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
                   workingProject.getTask1().setCompleted(true);
-                  System.out.println("Task marked as completed.");
+                  System.out.println("\nTask marked as completed.");
                   taskFound = true;
               } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
                   workingProject.getTask2().setCompleted(true);
-                  System.out.println("Task marked as completed.");
+                  System.out.println("\nTask marked as completed.");
                   taskFound = true;
               } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
                   workingProject.getTask3().setCompleted(true);
-                  System.out.println("Task marked as completed.");
+                  System.out.println("\nTask marked as completed.");
                   taskFound = true;
               } else {
                   System.out.println("No task with that ID exists in this project.");
