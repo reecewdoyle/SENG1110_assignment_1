@@ -90,14 +90,7 @@ public class UserInterface {
         System.out.println("9. Display project summary");
         System.out.println("-1 Exit");
         System.out.print("Enter your choice: ");
-
-        if (scannerInput.hasNextInt()) {
-          int choice = scannerInput.nextInt();
-          return choice;
-        } else {
-          scannerInput.nextLine();
-          return 0;
-        }
+        return scannerInput.nextInt();
     }
 
 // -------------------------------------------------------------------------
