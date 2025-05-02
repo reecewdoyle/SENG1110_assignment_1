@@ -681,9 +681,12 @@ private void markTaskAsCompleted() {
 
 /**
  * Removes a task from a selected project based on task ID.
+ * Prompts the user to choose a project and task to delete.
  * Validates all user inputs and ensures the task exists before removing it.
+ * User can enter -1 at the Task ID prompt to return to the menu.
  */
 private void removeTask() {
+  // Check if there are any projects to work with
   if (project1 == null && project2 == null && project3 == null) {
       System.out.println("There are no saved projects to remove tasks from.");
       return;
@@ -693,7 +696,7 @@ private void removeTask() {
   boolean projectSelected = false;
   Project workingProject = null;
 
-  // Prompt user to select a valid project by ID
+  // ------------------ Select Project ------------------
   do {
       System.out.print("Enter the Project ID where the task to be deleted is located: ");
 
@@ -723,10 +726,11 @@ private void removeTask() {
       }
   } while (!projectSelected);
 
+  // ------------------ Display Project Info ------------------
   System.out.println("Selected Project: " + workingProject.getProjectName());
   System.out.println("Project Type: " + workingProject.getProjectType());
 
-  // Check if any tasks exist in the selected project
+  // Check if any tasks exist in the project
   if (workingProject.getTask1() == null &&
       workingProject.getTask2() == null &&
       workingProject.getTask3() == null) {
@@ -737,15 +741,21 @@ private void removeTask() {
   int taskId = 0;
   boolean taskRemoved = false;
 
-  // Prompt user for a valid Task ID and remove the matching task
+  // ------------------ Select Task to Remove ------------------
   do {
-      System.out.print("Enter Task ID (1-9): ");
+      System.out.print("Enter Task ID to remove (1-9, or -1 to return to menu): ");
 
       if (scannerInput.hasNextInt()) {
           taskId = scannerInput.nextInt();
-          scannerInput.nextLine();
+          scannerInput.nextLine(); // Clear newline
+
+          if (taskId == -1) {
+              System.out.println("Returning to main menu...");
+              return;
+          }
 
           if (taskId > 0 && taskId <= 9) {
+              // Check each task slot
               if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
                   workingProject.setTask1(null);
                   System.out.println("Task removed.");
