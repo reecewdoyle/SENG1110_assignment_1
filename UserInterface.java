@@ -886,7 +886,7 @@ private void displayProjectDetails() {
 private void displayCompletedTasks() {
   // Check if there are any saved projects to search through
   if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("There are no saved projects to check for completed tasks.");
+      System.out.println("\nThere are no saved projects to check for completed tasks.");
       return;
   }
 
@@ -896,7 +896,7 @@ private void displayCompletedTasks() {
 
   // Prompt user until a valid project ID is entered or they choose to return
   do {
-      System.out.print("Enter the Project ID to view completed tasks (-1 to return to menu): ");
+      System.out.print("\nEnter the Project ID to view completed tasks (-1 to return to menu): ");
 
       if (scannerInput.hasNextInt()) {
           id = scannerInput.nextInt();
@@ -904,7 +904,7 @@ private void displayCompletedTasks() {
 
           // Allow user to return to menu
           if (id == -1) {
-              System.out.println("Returning to main menu...");
+              System.out.println("\nReturning to main menu...");
               return;
           }
 
@@ -927,7 +927,7 @@ private void displayCompletedTasks() {
       }
   } while (!projectFound);
 
-  System.out.println("Completed Tasks in Project ID " + selectedProject.getProjectId() + ":");
+  System.out.println("\nCompleted Tasks in Project ID " + selectedProject.getProjectId() + ":");
 
   boolean foundTask = false;
 
