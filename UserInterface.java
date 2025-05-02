@@ -560,108 +560,119 @@ private void addTask() {
 
 /**
  * Marks a task as completed within a selected project.
- * Validates project and task ID input to ensure only valid tasks are updated.
+ * Prompts the user to select a project by ID, then a task within that project.
+ * Validates all input to ensure only valid IDs are accepted.
+ * User can enter -1 at the task ID prompt to return to the main menu.
  */
 private void markTaskAsCompleted() {
-    if (project1 == null && project2 == null && project3 == null) {
-        System.out.println("There are no saved projects to mark off tasks in.");
-        return;
-    }
+  // Check if there are any projects to work with
+  if (project1 == null && project2 == null && project3 == null) {
+      System.out.println("There are no saved projects to mark off tasks in.");
+      return;
+  }
 
-    int id = 0;
-    boolean projectSelected = false;
-    Project workingProject = null;
+  int id = 0;
+  boolean projectSelected = false;
+  Project workingProject = null;
 
-    // Prompt user to select a project
-    do {
-        System.out.print("Enter the Project ID where the completed task is located: ");
+  // ------------------ Select Project ------------------
+  // Prompt user for a valid project ID
+  do {
+      System.out.print("Enter the Project ID where the completed task is located: ");
 
-        if (scannerInput.hasNextInt()) {
-            id = scannerInput.nextInt();
-            scannerInput.nextLine();
+      if (scannerInput.hasNextInt()) {
+          id = scannerInput.nextInt();
+          scannerInput.nextLine(); // Clear newline
 
-            if (id > 0) {
-                if (project1 != null && project1.getProjectId() == id) {
-                    workingProject = project1;
-                    projectSelected = true;
-                } else if (project2 != null && project2.getProjectId() == id) {
-                    workingProject = project2;
-                    projectSelected = true;
-                } else if (project3 != null && project3.getProjectId() == id) {
-                    workingProject = project3;
-                    projectSelected = true;
-                } else {
-                    System.out.println("No project with that ID exists.");
-                }
-            } else {
-                System.out.println("Project ID must be a positive whole number.");
-            }
-        } else {
-            System.out.println("Invalid input. Please enter a number.");
-            scannerInput.next(); // Clear invalid input
-        }
-    } while (!projectSelected);
+          if (id > 0) {
+              // Check each project slot
+              if (project1 != null && project1.getProjectId() == id) {
+                  workingProject = project1;
+                  projectSelected = true;
+              } else if (project2 != null && project2.getProjectId() == id) {
+                  workingProject = project2;
+                  projectSelected = true;
+              } else if (project3 != null && project3.getProjectId() == id) {
+                  workingProject = project3;
+                  projectSelected = true;
+              } else {
+                  System.out.println("No project with that ID exists.");
+              }
+          } else {
+              System.out.println("Project ID must be a positive whole number.");
+          }
+      } else {
+          System.out.println("Invalid input. Please enter a number.");
+          scannerInput.next(); // Clear invalid input
+      }
+  } while (!projectSelected);
 
-    System.out.println("Selected Project: " + workingProject.getProjectName());
-    System.out.println("Project Type: " + workingProject.getProjectType());
+  // ------------------ Display Project Info ------------------
+  System.out.println("Selected Project: " + workingProject.getProjectName());
+  System.out.println("Project Type: " + workingProject.getProjectType());
 
-    // Display project type details
-    switch (workingProject.getProjectType()) {
-        case "Small":
-            System.out.println("This project allows only 1 task.");
-            break;
-        case "Medium":
-            System.out.println("This project allows up to 2 tasks.");
-            break;
-        case "Large":
-            System.out.println("This project allows up to 3 tasks.");
-            break;
-    }
+  switch (workingProject.getProjectType()) {
+      case "Small":
+          System.out.println("This project allows only 1 task.");
+          break;
+      case "Medium":
+          System.out.println("This project allows up to 2 tasks.");
+          break;
+      case "Large":
+          System.out.println("This project allows up to 3 tasks.");
+          break;
+  }
 
-    // Check if the selected project has any tasks
-    if (workingProject.getTask1() == null &&
-        workingProject.getTask2() == null &&
-        workingProject.getTask3() == null) {
+  // ------------------ Check for Tasks ------------------
+  if (workingProject.getTask1() == null &&
+      workingProject.getTask2() == null &&
+      workingProject.getTask3() == null) {
+      System.out.println("This project has no tasks to be marked as completed.");
+      return;
+  }
 
-        System.out.println("This project has no tasks to be marked as completed.");
-        return;
-    }
+  // ------------------ Select Task ------------------
+  int taskId = 0;
+  boolean taskFound = false;
 
-    // Prompt user for the task ID to mark as complete
-    int taskId = 0;
-    boolean taskFound = false;
+  do {
+      System.out.print("Enter the Task ID to be marked as completed (-1 to return to menu): ");
 
-    do {
-        System.out.print("Enter the Task ID to be marked as completed: ");
+      if (scannerInput.hasNextInt()) {
+          taskId = scannerInput.nextInt();
+          scannerInput.nextLine(); // Clear newline
 
-        if (scannerInput.hasNextInt()) {
-            taskId = scannerInput.nextInt();
-            scannerInput.nextLine();
+          if (taskId == -1) {
+              // User chose to exit
+              System.out.println("Returning to main menu...");
+              return;
+          }
 
-            if (taskId > 0 && taskId <= 9) {
-                if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
-                    workingProject.getTask1().setCompleted(true);
-                    System.out.println("Task marked as completed.");
-                    taskFound = true;
-                } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
-                    workingProject.getTask2().setCompleted(true);
-                    System.out.println("Task marked as completed.");
-                    taskFound = true;
-                } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
-                    workingProject.getTask3().setCompleted(true);
-                    System.out.println("Task marked as completed.");
-                    taskFound = true;
-                } else {
-                    System.out.println("No task with that ID exists in this project.");
-                }
-            } else {
-                System.out.println("Task ID must be a number between 1 and 9.");
-            }
-        } else {
-            System.out.println("Invalid input. Please enter a number.");
-            scannerInput.next(); // Clear invalid input
-        }
-    } while (!taskFound);
+          if (taskId > 0 && taskId <= 9) {
+              // Check each task slot for matching ID
+              if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
+                  workingProject.getTask1().setCompleted(true);
+                  System.out.println("Task marked as completed.");
+                  taskFound = true;
+              } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
+                  workingProject.getTask2().setCompleted(true);
+                  System.out.println("Task marked as completed.");
+                  taskFound = true;
+              } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
+                  workingProject.getTask3().setCompleted(true);
+                  System.out.println("Task marked as completed.");
+                  taskFound = true;
+              } else {
+                  System.out.println("No task with that ID exists in this project.");
+              }
+          } else {
+              System.out.println("Task ID must be a number between 1 and 9.");
+          }
+      } else {
+          System.out.println("Invalid input. Please enter a number.");
+          scannerInput.next(); // Clear invalid input
+      }
+  } while (!taskFound);
 }
 
 // -------------------------------------------------------------------------
