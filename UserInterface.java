@@ -788,14 +788,16 @@ private void removeTask() {
 /**
  * Displays all saved projects and their associated task details.
  * If no projects are saved, a message is shown instead.
+ * For each project, tasks are listed with ID, description, type, duration, and status.
  */
 private void displayProjectDetails() {
+  // If no projects exist, notify user and exit
   if (project1 == null && project2 == null && project3 == null) {
       System.out.println("There are no saved projects to display.");
       return;
   }
 
-  // Display details for project 1 if it exists
+  // ------------------ Project 1 ------------------
   if (project1 != null) {
       System.out.println("---------------------------------------------------");
       System.out.println("Project ID: " + project1.getProjectId());
@@ -803,6 +805,7 @@ private void displayProjectDetails() {
       System.out.println("Project Type: " + project1.getProjectType());
       System.out.println("Tasks:");
 
+      // Task 1
       if (project1.getTask1() != null) {
           System.out.println("* Task ID: " + project1.getTask1().getTaskId()
               + ", Description: " + project1.getTask1().getDescription()
@@ -811,6 +814,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project1.getTask1().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // Task 2
       if (project1.getTask2() != null) {
           System.out.println("* Task ID: " + project1.getTask2().getTaskId()
               + ", Description: " + project1.getTask2().getDescription()
@@ -819,6 +823,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project1.getTask2().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // Task 3
       if (project1.getTask3() != null) {
           System.out.println("* Task ID: " + project1.getTask3().getTaskId()
               + ", Description: " + project1.getTask3().getDescription()
@@ -827,12 +832,13 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project1.getTask3().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // No tasks check
       if (project1.getTask1() == null && project1.getTask2() == null && project1.getTask3() == null) {
           System.out.println("No tasks stored for this project.");
       }
   }
 
-  // Display details for project 2 if it exists
+  // ------------------ Project 2 ------------------
   if (project2 != null) {
       System.out.println("---------------------------------------------------");
       System.out.println("Project ID: " + project2.getProjectId());
@@ -840,6 +846,7 @@ private void displayProjectDetails() {
       System.out.println("Project Type: " + project2.getProjectType());
       System.out.println("Tasks:");
 
+      // Task 1
       if (project2.getTask1() != null) {
           System.out.println("* Task ID: " + project2.getTask1().getTaskId()
               + ", Description: " + project2.getTask1().getDescription()
@@ -848,6 +855,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project2.getTask1().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // Task 2
       if (project2.getTask2() != null) {
           System.out.println("* Task ID: " + project2.getTask2().getTaskId()
               + ", Description: " + project2.getTask2().getDescription()
@@ -856,6 +864,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project2.getTask2().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // Task 3
       if (project2.getTask3() != null) {
           System.out.println("* Task ID: " + project2.getTask3().getTaskId()
               + ", Description: " + project2.getTask3().getDescription()
@@ -864,12 +873,13 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project2.getTask3().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // No tasks check
       if (project2.getTask1() == null && project2.getTask2() == null && project2.getTask3() == null) {
           System.out.println("No tasks stored for this project.");
       }
   }
 
-  // Display details for project 3 if it exists
+  // ------------------ Project 3 ------------------
   if (project3 != null) {
       System.out.println("---------------------------------------------------");
       System.out.println("Project ID: " + project3.getProjectId());
@@ -877,6 +887,7 @@ private void displayProjectDetails() {
       System.out.println("Project Type: " + project3.getProjectType());
       System.out.println("Tasks:");
 
+      // Task 1
       if (project3.getTask1() != null) {
           System.out.println("* Task ID: " + project3.getTask1().getTaskId()
               + ", Description: " + project3.getTask1().getDescription()
@@ -885,6 +896,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project3.getTask1().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // Task 2
       if (project3.getTask2() != null) {
           System.out.println("* Task ID: " + project3.getTask2().getTaskId()
               + ", Description: " + project3.getTask2().getDescription()
@@ -893,6 +905,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project3.getTask2().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // Task 3
       if (project3.getTask3() != null) {
           System.out.println("* Task ID: " + project3.getTask3().getTaskId()
               + ", Description: " + project3.getTask3().getDescription()
@@ -901,6 +914,7 @@ private void displayProjectDetails() {
           System.out.println("  Status: " + (project3.getTask3().getCompleted() ? "Completed" : "Pending"));
       }
 
+      // No tasks check
       if (project3.getTask1() == null && project3.getTask2() == null && project3.getTask3() == null) {
           System.out.println("No tasks stored for this project.");
       }
