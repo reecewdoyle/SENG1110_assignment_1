@@ -41,8 +41,6 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [x] Duplicate ID triggers error message
     - [x] projectType is case-sensitive 
     - [x] "sMall", "SMALL" are normalised to "Small" and treated the same as "Small"
-#### Bonus Features (Optional, if I have time)
-    - [ ] Display existing project IDs when duplicate is entered
 
 #### Adding a Task to a Project:
     - [x] Tasks can be added to a specific project using projectId.
