@@ -281,14 +281,14 @@ private void createProject() {
 private void removeProject() {
   // Check if there are any projects to remove
   if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("There are no saved Projects to remove.");
+      System.out.println("\nThere are no saved Projects to remove.");
   } else {
       int id = 0;
       boolean projectRemoved = false;
 
       // Loop until a valid project is removed or user exits
       do {
-          System.out.print("Enter the Project ID (1-999) to remove (-1 to return to menu): ");
+          System.out.print("\nEnter the Project ID (1-999) to remove (-1 to return to menu): ");
 
           // Validate input is an integer
           if (scannerInput.hasNextInt()) {
@@ -297,7 +297,7 @@ private void removeProject() {
 
               // Allow user to return to menu
               if (id == -1) {
-                  System.out.println("Returning to main menu...");
+                  System.out.println("\nReturning to main menu...");
                   return;
               }
 
@@ -305,15 +305,15 @@ private void removeProject() {
               if (id > 0) {
                   if (project1 != null && project1.getProjectId() == id) {
                       project1 = null;
-                      System.out.println("Project removed.");
+                      System.out.println("\nProject removed.");
                       projectRemoved = true;
                   } else if (project2 != null && project2.getProjectId() == id) {
                       project2 = null;
-                      System.out.println("Project removed.");
+                      System.out.println("\nProject removed.");
                       projectRemoved = true;
                   } else if (project3 != null && project3.getProjectId() == id) {
                       project3 = null;
-                      System.out.println("Project removed.");
+                      System.out.println("\nProject removed.");
                       projectRemoved = true;
                   } else {
                       System.out.println("Project ID doesn't exist.");
