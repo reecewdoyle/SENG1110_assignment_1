@@ -42,7 +42,7 @@ public class UserInterface {
         scannerInput = new Scanner(System.in);
 
         // Optional starter data
-        seedDummyData();
+        // seedDummyData();
 
         int choice;
 
@@ -120,83 +120,83 @@ public class UserInterface {
  * Loads dummy data into the system for testing and demonstration purposes.
  * Creates 3 sample projects (Small, Medium, Large), each with preset tasks.
  */
-private void seedDummyData() {
-  // --- Project 1: Small ---
-  Project p1 = new Project();
-  p1.setProjectId(101);
-  p1.setProjectName("Apollo");
-  p1.setProjectType("Small");
+// private void seedDummyData() {
+//   // --- Project 1: Small ---
+//   Project p1 = new Project();
+//   p1.setProjectId(101);
+//   p1.setProjectName("Apollo");
+//   p1.setProjectType("Small");
 
-  Task t1 = new Task();
-  t1.setTaskId(1);
-  t1.setDescription("Initial planning");
-  t1.setTaskType('A'); // Admin
-  t1.setTaskDuration(3);
-  t1.setCompleted(true);
+//   Task t1 = new Task();
+//   t1.setTaskId(1);
+//   t1.setDescription("Initial planning");
+//   t1.setTaskType('A'); // Admin
+//   t1.setTaskDuration(3);
+//   t1.setCompleted(true);
 
-  p1.setTask1(t1); // Small project only gets 1 task
+//   p1.setTask1(t1); // Small project only gets 1 task
 
-  // --- Project 2: Medium ---
-  Project p2 = new Project();
-  p2.setProjectId(102);
-  p2.setProjectName("Hermes");
-  p2.setProjectType("Medium");
+//   // --- Project 2: Medium ---
+//   Project p2 = new Project();
+//   p2.setProjectId(102);
+//   p2.setProjectName("Hermes");
+//   p2.setProjectType("Medium");
 
-  Task t2 = new Task();
-  t2.setTaskId(2);
-  t2.setDescription("Setup network");
-  t2.setTaskType('L'); // Logistics
-  t2.setTaskDuration(5);
-  t2.setCompleted(false);
+//   Task t2 = new Task();
+//   t2.setTaskId(2);
+//   t2.setDescription("Setup network");
+//   t2.setTaskType('L'); // Logistics
+//   t2.setTaskDuration(5);
+//   t2.setCompleted(false);
 
-  Task t3 = new Task();
-  t3.setTaskId(3);
-  t3.setDescription("Admin briefing");
-  t3.setTaskType('A'); // Admin
-  t3.setTaskDuration(2);
-  t3.setCompleted(true);
+//   Task t3 = new Task();
+//   t3.setTaskId(3);
+//   t3.setDescription("Admin briefing");
+//   t3.setTaskType('A'); // Admin
+//   t3.setTaskDuration(2);
+//   t3.setCompleted(true);
 
-  p2.setTask1(t2);
-  p2.setTask2(t3);
+//   p2.setTask1(t2);
+//   p2.setTask2(t3);
 
-  // --- Project 3: Large ---
-  Project p3 = new Project();
-  p3.setProjectId(103);
-  p3.setProjectName("Zeus");
-  p3.setProjectType("Large");
+//   // --- Project 3: Large ---
+//   Project p3 = new Project();
+//   p3.setProjectId(103);
+//   p3.setProjectName("Zeus");
+//   p3.setProjectType("Large");
 
-  Task t4 = new Task();
-  t4.setTaskId(4);
-  t4.setDescription("Logistics sync");
-  t4.setTaskType('L');
-  t4.setTaskDuration(6);
-  t4.setCompleted(false);
+//   Task t4 = new Task();
+//   t4.setTaskId(4);
+//   t4.setDescription("Logistics sync");
+//   t4.setTaskType('L');
+//   t4.setTaskDuration(6);
+//   t4.setCompleted(false);
 
-  Task t5 = new Task();
-  t5.setTaskId(5);
-  t5.setDescription("System config");
-  t5.setTaskType('S'); // Support
-  t5.setTaskDuration(4);
-  t5.setCompleted(false);
+//   Task t5 = new Task();
+//   t5.setTaskId(5);
+//   t5.setDescription("System config");
+//   t5.setTaskType('S'); // Support
+//   t5.setTaskDuration(4);
+//   t5.setCompleted(false);
 
-  Task t6 = new Task();
-  t6.setTaskId(6);
-  t6.setDescription("Admin approvals");
-  t6.setTaskType('A');
-  t6.setTaskDuration(3);
-  t6.setCompleted(true);
+//   Task t6 = new Task();
+//   t6.setTaskId(6);
+//   t6.setDescription("Admin approvals");
+//   t6.setTaskType('A');
+//   t6.setTaskDuration(3);
+//   t6.setCompleted(true);
 
-  p3.setTask1(t4);
-  p3.setTask2(t5);
-  p3.setTask3(t6);
+//   p3.setTask1(t4);
+//   p3.setTask2(t5);
+//   p3.setTask3(t6);
 
-  // Assign projects to the top-level project slots
-  project1 = p1;
-  project2 = p2;
-  project3 = p3;
+//   // Assign projects to the top-level project slots
+//   project1 = p1;
+//   project2 = p2;
+//   project3 = p3;
 
-  System.out.println("Dummy data loaded.");
-}
+//   System.out.println("Dummy data loaded.");
+// }
 
 // -------------------------------------------------------------------------
 // CREATE NEW PROJECT
