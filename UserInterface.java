@@ -974,7 +974,7 @@ private void displayCompletedTasks() {
  */
 private void filterTasksByType() {
   if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("There are no saved projects to filter tasks from.");
+      System.out.println("\nThere are no saved projects to filter tasks from.");
       return;
   }
 
@@ -986,7 +986,7 @@ private void filterTasksByType() {
 
   // Prompt user for task type until valid input is given
   do {
-      System.out.print("Enter task type to filter by (A = Admin, S = Support, L = Logistics): ");
+      System.out.print("\nEnter task type to filter by (A = Admin, S = Support, L = Logistics): ");
       String input = scannerInput.nextLine().trim().toUpperCase();
 
       if (input.length() == 1) {
@@ -997,7 +997,7 @@ private void filterTasksByType() {
               System.out.println("Invalid type. Please enter A, S, or L.");
           }
       } else {
-          System.out.println("Please enter a single character: A, S, or L.");
+          System.out.println("Invalid Input. Please enter a single character: A, S, or L.");
       }
   } while (!validType);
 
@@ -1006,7 +1006,7 @@ private void filterTasksByType() {
   // Check tasks in project1
   if (project1 != null) {
       if (project1.getTask1() != null && project1.getTask1().getTaskType() == type) {
-          System.out.println("From project: " + project1.getProjectName());
+          System.out.println("\nFrom project: " + project1.getProjectName());
           System.out.println("* Task ID: " + project1.getTask1().getTaskId()
               + ", Description: " + project1.getTask1().getDescription()
               + ", Type: " + project1.getTask1().getTaskType()
@@ -1015,7 +1015,7 @@ private void filterTasksByType() {
           foundType = true;
       }
       if (project1.getTask2() != null && project1.getTask2().getTaskType() == type) {
-          System.out.println("From project: " + project1.getProjectName());
+          System.out.println("\nFrom project: " + project1.getProjectName());
           System.out.println("* Task ID: " + project1.getTask2().getTaskId()
               + ", Description: " + project1.getTask2().getDescription()
               + ", Type: " + project1.getTask2().getTaskType()
@@ -1024,7 +1024,7 @@ private void filterTasksByType() {
           foundType = true;
       }
       if (project1.getTask3() != null && project1.getTask3().getTaskType() == type) {
-          System.out.println("From project: " + project1.getProjectName());
+          System.out.println("\nFrom project: " + project1.getProjectName());
           System.out.println("* Task ID: " + project1.getTask3().getTaskId()
               + ", Description: " + project1.getTask3().getDescription()
               + ", Type: " + project1.getTask3().getTaskType()
@@ -1037,7 +1037,7 @@ private void filterTasksByType() {
   // Check tasks in project2
   if (project2 != null) {
       if (project2.getTask1() != null && project2.getTask1().getTaskType() == type) {
-          System.out.println("From project: " + project2.getProjectName());
+          System.out.println("\nFrom project: " + project2.getProjectName());
           System.out.println("* Task ID: " + project2.getTask1().getTaskId()
               + ", Description: " + project2.getTask1().getDescription()
               + ", Type: " + project2.getTask1().getTaskType()
@@ -1046,7 +1046,7 @@ private void filterTasksByType() {
           foundType = true;
       }
       if (project2.getTask2() != null && project2.getTask2().getTaskType() == type) {
-          System.out.println("From project: " + project2.getProjectName());
+          System.out.println("\nFrom project: " + project2.getProjectName());
           System.out.println("* Task ID: " + project2.getTask2().getTaskId()
               + ", Description: " + project2.getTask2().getDescription()
               + ", Type: " + project2.getTask2().getTaskType()
@@ -1055,7 +1055,7 @@ private void filterTasksByType() {
           foundType = true;
       }
       if (project2.getTask3() != null && project2.getTask3().getTaskType() == type) {
-          System.out.println("From project: " + project2.getProjectName());
+          System.out.println("\nFrom project: " + project2.getProjectName());
           System.out.println("* Task ID: " + project2.getTask3().getTaskId()
               + ", Description: " + project2.getTask3().getDescription()
               + ", Type: " + project2.getTask3().getTaskType()
@@ -1068,7 +1068,7 @@ private void filterTasksByType() {
   // Check tasks in project3
   if (project3 != null) {
       if (project3.getTask1() != null && project3.getTask1().getTaskType() == type) {
-          System.out.println("From project: " + project3.getProjectName());
+          System.out.println("\nFrom project: " + project3.getProjectName());
           System.out.println("* Task ID: " + project3.getTask1().getTaskId()
               + ", Description: " + project3.getTask1().getDescription()
               + ", Type: " + project3.getTask1().getTaskType()
@@ -1077,7 +1077,7 @@ private void filterTasksByType() {
           foundType = true;
       }
       if (project3.getTask2() != null && project3.getTask2().getTaskType() == type) {
-          System.out.println("From project: " + project3.getProjectName());
+          System.out.println("\nFrom project: " + project3.getProjectName());
           System.out.println("* Task ID: " + project3.getTask2().getTaskId()
               + ", Description: " + project3.getTask2().getDescription()
               + ", Type: " + project3.getTask2().getTaskType()
@@ -1086,7 +1086,7 @@ private void filterTasksByType() {
           foundType = true;
       }
       if (project3.getTask3() != null && project3.getTask3().getTaskType() == type) {
-          System.out.println("From project: " + project3.getProjectName());
+          System.out.println("\nFrom project: " + project3.getProjectName());
           System.out.println("* Task ID: " + project3.getTask3().getTaskId()
               + ", Description: " + project3.getTask3().getDescription()
               + ", Type: " + project3.getTask3().getTaskType()
@@ -1097,7 +1097,7 @@ private void filterTasksByType() {
   }
 
   if (!foundType) {
-      System.out.println("No tasks of type " + type + " were found.");
+      System.out.println("\nNo tasks of type " + type + " were found.");
   }
 }
     
