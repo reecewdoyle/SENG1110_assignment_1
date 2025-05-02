@@ -197,7 +197,7 @@ private void createProject() {
       boolean validProjectId = false;
 
       do {
-          System.out.print("Enter Project ID (1-999): ");
+          System.out.print("\nEnter Project ID (1-999): ");
           if (scannerInput.hasNextInt()) {
               id = scannerInput.nextInt();
               scannerInput.nextLine(); // Consume leftover newline
@@ -221,10 +221,10 @@ private void createProject() {
       } while (!validProjectId);
 
       p.setProjectId(id);
-      System.out.println("Project ID " + p.getProjectId());
+      System.out.println("\nProject ID " + p.getProjectId());
 
       // ----------------- Project Name Input -----------------
-      System.out.print("Enter Project Name: ");
+      System.out.print("\nEnter Project Name: ");
       String projectName = scannerInput.nextLine().trim();
       while (projectName.isEmpty()) {
           System.out.println("Project name cannot be empty. Please enter a valid name:");
@@ -234,7 +234,7 @@ private void createProject() {
       System.out.println("Project Name " + p.getProjectName());
 
       // ----------------- Project Type Input -----------------
-      System.out.print("Enter Project Type (Small, Medium or Large): ");
+      System.out.print("\nEnter Project Type (Small, Medium or Large): ");
       String projectType = scannerInput.nextLine().trim();
 
       // Ensure project type input is not empty before normalising and validating
@@ -262,8 +262,10 @@ private void createProject() {
       if (project1 == null) project1 = p;
       else if (project2 == null) project2 = p;
       else if (project3 == null) project3 = p;
+
+      System.out.println("\nProject successfully created!");
   } else {
-      System.out.println("Maximum projects reached!");
+      System.out.println("\nMaximum projects reached!");
   }
 }
 
