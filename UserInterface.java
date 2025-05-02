@@ -1232,29 +1232,29 @@ private void displayProjectSummary() {
   }
 
   // Print combined averages across all projects
-  System.out.println("------------------------ Average Task Duration ------------------");
+  System.out.println("\n------------------------ Average Task Duration ------------------\n");
 
   if (countAdmin > 0) {
-      System.out.println("* Average task duration of administrative tasks is " + (totalAdmin / countAdmin) + " hours");
+      System.out.println("* Average task duration of administrative tasks is " + (totalAdmin / countAdmin) + " hours\n");
   } else {
-      System.out.println("* No administrative tasks found.");
+      System.out.println("* No administrative tasks found.\n");
   }
 
   if (countSupport > 0) {
-      System.out.println("* Average task duration of support tasks is " + (totalSupport / countSupport) + " hours");
+      System.out.println("* Average task duration of support tasks is " + (totalSupport / countSupport) + " hours\n");
   } else {
-      System.out.println("* No support tasks found.");
+      System.out.println("* No support tasks found.\n");
   }
 
   if (countLogistics > 0) {
-      System.out.println("* Average task duration of logistics tasks is " + (totalLogistics / countLogistics) + " hours");
+      System.out.println("* Average task duration of logistics tasks is " + (totalLogistics / countLogistics) + " hours\n");
   } else {
-      System.out.println("* No logistics tasks found.");
+      System.out.println("* No logistics tasks found.\n");
   }
 
   // Project-specific breakdown for project1
   if (project1 != null) {
-      System.out.println("---------------- Project " + project1.getProjectId() + " ----------------");
+      System.out.println("\n---------------- Project " + project1.getProjectId() + " ----------------\n");
 
       int admin = 0, countA = 0;
       int support = 0, countS = 0;
@@ -1281,27 +1281,27 @@ private void displayProjectSummary() {
       }
 
       if (countA > 0) {
-          System.out.println("* Admin average: " + (admin / countA) + " hours");
+          System.out.println("* Admin average: " + (admin / countA) + " hours\n");
       } else {
-          System.out.println("* No admin tasks found.");
+          System.out.println("* No admin tasks found.\n");
       }
 
       if (countS > 0) {
-          System.out.println("* Support average: " + (support / countS) + " hours");
+          System.out.println("* Support average: " + (support / countS) + " hours\n");
       } else {
-          System.out.println("* No support tasks found.");
+          System.out.println("* No support tasks found.\n");
       }
 
       if (countL > 0) {
-          System.out.println("* Logistics average: " + (logistics / countL) + " hours");
+          System.out.println("* Logistics average: " + (logistics / countL) + " hours\n");
       } else {
-          System.out.println("* No logistics tasks found.");
+          System.out.println("* No logistics tasks found.\n");
       }
   }
 
   // Project-specific breakdown for project3
   if (project3 != null) {
-      System.out.println("---------------- Project " + project3.getProjectId() + " ----------------");
+      System.out.println("\n---------------- Project " + project3.getProjectId() + " ----------------\n");
 
       int admin = 0, countA = 0;
       int support = 0, countS = 0;
@@ -1328,21 +1328,21 @@ private void displayProjectSummary() {
       }
 
       if (countA > 0) {
-          System.out.println("* Admin average: " + (admin / countA) + " hours");
+          System.out.println("* Admin average: " + (admin / countA) + " hours\n");
       } else {
-          System.out.println("* No admin tasks found.");
+          System.out.println("* No admin tasks found.\n");
       }
 
       if (countS > 0) {
-          System.out.println("* Support average: " + (support / countS) + " hours");
+          System.out.println("* Support average: " + (support / countS) + " hours\n");
       } else {
-          System.out.println("* No support tasks found.");
+          System.out.println("* No support tasks found.\n");
       }
 
       if (countL > 0) {
-          System.out.println("* Logistics average: " + (logistics / countL) + " hours");
+          System.out.println("* Logistics average: " + (logistics / countL) + " hours\n");
       } else {
-          System.out.println("* No logistics tasks found.");
+          System.out.println("* No logistics tasks found.\n");
       }
     }
   }
