@@ -261,6 +261,59 @@ private void createProject() {
   }
 }
 
+// // -------------------------------------------------------------------------
+// // REMOVE PROJECT
+// // -------------------------------------------------------------------------
+
+// /**
+//  * Removes a project from the system based on user-provided ID.
+//  * Validates user input and only removes if the ID matches an existing project.
+//  */
+// private void removeProject() {
+//   // Check if there are any projects to remove
+//   if (project1 == null && project2 == null && project3 == null) {
+//       System.out.println("There are no saved Projects to remove.");
+//   } else {
+//       int id = 0;
+//       boolean projectRemoved = false;
+
+//       // Loop until a valid project is removed or user chooses to exit
+//       do {
+//           System.out.print("Enter the Project ID to remove (or -1 to cancel): ");
+
+//           if (scannerInput.hasNextInt()) {
+//               id = scannerInput.nextInt();
+//               scannerInput.nextLine(); // Consume leftover newline
+//           } else {
+//               System.out.println("Invalid input. Please enter a positive whole number.");
+//               scannerInput.next(); // Clear invalid token
+//               continue; // Skip rest of loop
+//           }
+
+//           // Check ID is positive and remove matching project
+//           if (id > 0) {
+//               if (project1 != null && project1.getProjectId() == id) {
+//                   project1 = null;
+//                   System.out.println("Project removed");
+//                   projectRemoved = true;
+//               } else if (project2 != null && project2.getProjectId() == id) {
+//                   project2 = null;
+//                   System.out.println("Project removed");
+//                   projectRemoved = true;
+//               } else if (project3 != null && project3.getProjectId() == id) {
+//                   project3 = null;
+//                   System.out.println("Project removed");
+//                   projectRemoved = true;
+//               } else {
+//                   System.out.println("Project ID doesn't exist.");
+//               }
+//           } else {
+//               System.out.println("Project ID must be a positive whole number.");
+//           }
+//       } while (!projectRemoved);
+//   }
+// }
+
 // -------------------------------------------------------------------------
 // REMOVE PROJECT
 // -------------------------------------------------------------------------
@@ -268,6 +321,7 @@ private void createProject() {
 /**
  * Removes a project from the system based on user-provided ID.
  * Validates user input and only removes if the ID matches an existing project.
+ * Entering -1 will return to the main menu without deleting anything.
  */
 private void removeProject() {
   // Check if there are any projects to remove
@@ -277,38 +331,46 @@ private void removeProject() {
       int id = 0;
       boolean projectRemoved = false;
 
-      // Loop until a valid project is removed
+      // Loop until a valid project is removed or user exits
       do {
-          System.out.print("Enter the Project ID to remove: ");
+          System.out.print("Enter the Project ID to remove (-1 to return to menu): ");
 
+          // Validate input is an integer
           if (scannerInput.hasNextInt()) {
               id = scannerInput.nextInt();
               scannerInput.nextLine(); // Consume leftover newline
-          } else {
-              System.out.println("Invalid input. Please enter a positive whole number.");
-              scannerInput.next(); // Clear invalid token
-              continue; // Skip rest of loop
-          }
 
-          // Check ID is positive and remove matching project
-          if (id > 0) {
-              if (project1 != null && project1.getProjectId() == id) {
-                  project1 = null;
-                  System.out.println("Project removed");
-                  projectRemoved = true;
-              } else if (project2 != null && project2.getProjectId() == id) {
-                  project2 = null;
-                  System.out.println("Project removed");
-                  projectRemoved = true;
-              } else if (project3 != null && project3.getProjectId() == id) {
-                  project3 = null;
-                  System.out.println("Project removed");
-                  projectRemoved = true;
+              // Allow user to return to menu
+              if (id == -1) {
+                  System.out.println("Returning to main menu...");
+                  return;
+              }
+
+              // Handle positive IDs
+              if (id > 0) {
+                  if (project1 != null && project1.getProjectId() == id) {
+                      project1 = null;
+                      System.out.println("Project removed.");
+                      projectRemoved = true;
+                  } else if (project2 != null && project2.getProjectId() == id) {
+                      project2 = null;
+                      System.out.println("Project removed.");
+                      projectRemoved = true;
+                  } else if (project3 != null && project3.getProjectId() == id) {
+                      project3 = null;
+                      System.out.println("Project removed.");
+                      projectRemoved = true;
+                  } else {
+                      System.out.println("Project ID doesn't exist.");
+                  }
               } else {
-                  System.out.println("Project ID doesn't exist.");
+                  // Handle zero or negative input (excluding -1)
+                  System.out.println("Project ID must be a positive whole number.");
               }
           } else {
-              System.out.println("Project ID must be a positive whole number.");
+              // Handle non-integer input
+              System.out.println("Invalid input. Please enter a positive whole number.");
+              scannerInput.next(); // Clear invalid token
           }
       } while (!projectRemoved);
   }
@@ -818,104 +880,82 @@ private void displayProjectDetails() {
 // -------------------------------------------------------------------------
 
 /**
- * Displays all tasks that are marked as completed across all saved projects.
- * If no completed tasks are found, a message is displayed instead.
+ * Displays only completed tasks for a specific project by projectId.
+ * Prompts the user to enter a valid project ID, validates it, and checks the selected project
+ * for any tasks marked as completed. If completed tasks exist, they are displayed in a formatted
+ * list. If none are found, an appropriate message is shown.
  */
 private void displayCompletedTasks() {
+  // Check if there are any saved projects to search through
   if (project1 == null && project2 == null && project3 == null) {
       System.out.println("There are no saved projects to check for completed tasks.");
       return;
   }
 
+  Project selectedProject = null;
+  int id = 0;
+  boolean projectFound = false;
+
+  // Prompt user until a valid project ID is entered
+  do {
+      System.out.print("Enter the Project ID to view completed tasks: ");
+      if (scannerInput.hasNextInt()) {
+          id = scannerInput.nextInt();
+          scannerInput.nextLine();
+
+          // Match input ID to a saved project
+          if (project1 != null && project1.getProjectId() == id) {
+              selectedProject = project1;
+              projectFound = true;
+          } else if (project2 != null && project2.getProjectId() == id) {
+              selectedProject = project2;
+              projectFound = true;
+          } else if (project3 != null && project3.getProjectId() == id) {
+              selectedProject = project3;
+              projectFound = true;
+          } else {
+              System.out.println("No project with that ID exists.");
+          }
+      } else {
+          System.out.println("Invalid input. Please enter a valid whole number.");
+          scannerInput.next(); // Clear invalid input
+      }
+  } while (!projectFound);
+
+  System.out.println("Completed Tasks in Project ID " + selectedProject.getProjectId() + ":");
+
   boolean foundTask = false;
 
-  // Check completed tasks in project1
-  if (project1 != null) {
-      if (project1.getTask1() != null && project1.getTask1().getCompleted()) {
-          System.out.println("* Task ID: " + project1.getTask1().getTaskId()
-              + ", Description: " + project1.getTask1().getDescription()
-              + ", Type: " + project1.getTask1().getTaskType()
-              + ", Duration: " + project1.getTask1().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
-      if (project1.getTask2() != null && project1.getTask2().getCompleted()) {
-          System.out.println("* Task ID: " + project1.getTask2().getTaskId()
-              + ", Description: " + project1.getTask2().getDescription()
-              + ", Type: " + project1.getTask2().getTaskType()
-              + ", Duration: " + project1.getTask2().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
-      if (project1.getTask3() != null && project1.getTask3().getCompleted()) {
-          System.out.println("* Task ID: " + project1.getTask3().getTaskId()
-              + ", Description: " + project1.getTask3().getDescription()
-              + ", Type: " + project1.getTask3().getTaskType()
-              + ", Duration: " + project1.getTask3().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
+  // Check and display completed Task 1 (if exists)
+  if (selectedProject.getTask1() != null && selectedProject.getTask1().getCompleted()) {
+      System.out.println("* Task ID: " + selectedProject.getTask1().getTaskId()
+          + ", Description: " + selectedProject.getTask1().getDescription()
+          + ", Type: " + selectedProject.getTask1().getTaskType()
+          + ", Duration: " + selectedProject.getTask1().getTaskDuration());
+      foundTask = true;
   }
 
-  // Check completed tasks in project2
-  if (project2 != null) {
-      if (project2.getTask1() != null && project2.getTask1().getCompleted()) {
-          System.out.println("* Task ID: " + project2.getTask1().getTaskId()
-              + ", Description: " + project2.getTask1().getDescription()
-              + ", Type: " + project2.getTask1().getTaskType()
-              + ", Duration: " + project2.getTask1().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
-      if (project2.getTask2() != null && project2.getTask2().getCompleted()) {
-          System.out.println("* Task ID: " + project2.getTask2().getTaskId()
-              + ", Description: " + project2.getTask2().getDescription()
-              + ", Type: " + project2.getTask2().getTaskType()
-              + ", Duration: " + project2.getTask2().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
-      if (project2.getTask3() != null && project2.getTask3().getCompleted()) {
-          System.out.println("* Task ID: " + project2.getTask3().getTaskId()
-              + ", Description: " + project2.getTask3().getDescription()
-              + ", Type: " + project2.getTask3().getTaskType()
-              + ", Duration: " + project2.getTask3().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
+  // Check and display completed Task 2 (if exists)
+  if (selectedProject.getTask2() != null && selectedProject.getTask2().getCompleted()) {
+      System.out.println("* Task ID: " + selectedProject.getTask2().getTaskId()
+          + ", Description: " + selectedProject.getTask2().getDescription()
+          + ", Type: " + selectedProject.getTask2().getTaskType()
+          + ", Duration: " + selectedProject.getTask2().getTaskDuration());
+      foundTask = true;
   }
 
-  // Check completed tasks in project3
-  if (project3 != null) {
-      if (project3.getTask1() != null && project3.getTask1().getCompleted()) {
-          System.out.println("* Task ID: " + project3.getTask1().getTaskId()
-              + ", Description: " + project3.getTask1().getDescription()
-              + ", Type: " + project3.getTask1().getTaskType()
-              + ", Duration: " + project3.getTask1().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
-      if (project3.getTask2() != null && project3.getTask2().getCompleted()) {
-          System.out.println("* Task ID: " + project3.getTask2().getTaskId()
-              + ", Description: " + project3.getTask2().getDescription()
-              + ", Type: " + project3.getTask2().getTaskType()
-              + ", Duration: " + project3.getTask2().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
-      if (project3.getTask3() != null && project3.getTask3().getCompleted()) {
-          System.out.println("* Task ID: " + project3.getTask3().getTaskId()
-              + ", Description: " + project3.getTask3().getDescription()
-              + ", Type: " + project3.getTask3().getTaskType()
-              + ", Duration: " + project3.getTask3().getTaskDuration());
-          System.out.println("  Status: Completed");
-          foundTask = true;
-      }
+  // Check and display completed Task 3 (if exists)
+  if (selectedProject.getTask3() != null && selectedProject.getTask3().getCompleted()) {
+      System.out.println("* Task ID: " + selectedProject.getTask3().getTaskId()
+          + ", Description: " + selectedProject.getTask3().getDescription()
+          + ", Type: " + selectedProject.getTask3().getTaskType()
+          + ", Duration: " + selectedProject.getTask3().getTaskDuration());
+      foundTask = true;
   }
 
-  // No completed tasks found
+  // Display message if no completed tasks found
   if (!foundTask) {
-      System.out.println("No completed tasks found in any project.");
+      System.out.println("No completed tasks found in this project.");
   }
 }
 

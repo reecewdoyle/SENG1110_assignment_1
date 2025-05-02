@@ -4,7 +4,7 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 ## Program Structure Requirements
     - [x] Implement a menu-driven console application (TIO)
     - [x] Users can create and manage up to 3 projects.
-    - [ ] Number of tasks allowed per project depends on the project type configured in the Project Class. 
+    - [x] Number of tasks allowed per project depends on the project type configured in the Project Class. 
     - [x] Must contain 3 classes.
 
 ### Task Class
@@ -43,10 +43,6 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
     - [x] "sMall", "SMALL" are normalised to "Small" and treated the same as "Small"
 #### Bonus Features (Optional, if I have time)
     - [ ] Display existing project IDs when duplicate is entered
-    - [x] Enforce 1-digit Project ID format
-
-
-    
 
 #### Adding a Task to a Project:
     - [x] Tasks can be added to a specific project using projectId.
@@ -57,12 +53,12 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 
 #### Removing a Project:
     - [x] User can delete a project by entering it's projectId
-    - [ ] All tasks associated are removed
-    - [ ] Invalid ID throws error.
+    - [x] All tasks associated are removed
+    - [x] Invalid ID throws error.
 
 #### Marking a Task as Completed:
-    - [ ] User can mark a project's task as completed by entering a valid projectId or taskID. 
-    - [ ] Invalid ID throws error.
+    - [x] User can mark a project's task as completed by entering a valid projectId or taskID. 
+    - [x] Invalid ID throws error.
 
 #### Removing a Task:
     - [x] User can delete task from project by entering a valid projectId or taskId.
@@ -70,11 +66,11 @@ Repo for assignment one so I can work in VSCode and document my progress with Gi
 
 ### Project Display
 #### Displaying all project details
-    - [ ] projectID
-    - [ ] name
-    - [ ] type
-    - [ ] number of task
-    - [ ] associated details
+    - [x] projectID
+    - [x] name
+    - [x] type
+    - [x] number of task
+    - [x] associated details
 
 
 Output:
@@ -103,8 +99,8 @@ Completed Tasks in Project ID 125:
 ```
 
 #### Filter Tasks by Type
-    - [ ] Display filtered by A, S, or L.
-    - [ ] case sesnitive
+    - [x] Display filtered by A, S, or L.
+    - [x] case sesnitive
 
 Output:
 ```
@@ -116,10 +112,10 @@ Status: Pending ----------------------------------------------------------------
 
 ### Project Task Duration Summary
 #### Average Task Type Durations
-    - [ ] Calculate and display average time based on task type (A, S, L)
+    - [x] Calculate and display average time based on task type (A, S, L)
 
 #### Average Task Durations Breakdown by Project
-    - [ ] Show seperate averages of task duration for different task types in each created project. 
+    - [x] Show seperate averages of task duration for different task types in each created project. 
 
 Output:
 
