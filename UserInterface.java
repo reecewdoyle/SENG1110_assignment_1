@@ -333,7 +333,7 @@ private void removeProject() {
 
       // Loop until a valid project is removed or user exits
       do {
-          System.out.print("Enter the Project ID to remove (-1 to return to menu): ");
+          System.out.print("Enter the Project ID (1-999) to remove (-1 to return to menu): ");
 
           // Validate input is an integer
           if (scannerInput.hasNextInt()) {
@@ -365,11 +365,11 @@ private void removeProject() {
                   }
               } else {
                   // Handle zero or negative input (excluding -1)
-                  System.out.println("Project ID must be a positive whole number.");
+                  System.out.println("Project ID must be a positive whole number (1-999).");
               }
           } else {
               // Handle non-integer input
-              System.out.println("Invalid input. Please enter a positive whole number.");
+              System.out.println("Invalid input. Please enter a positive whole number (1-999).");
               scannerInput.next(); // Clear invalid token
           }
       } while (!projectRemoved);
