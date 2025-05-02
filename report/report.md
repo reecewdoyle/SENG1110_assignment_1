@@ -26,19 +26,37 @@ The program uses three simple classes: `UserInterface` controls the flow of the 
 
 ## Program Screenshots
 
-_Include images showing key program features. You can add each image below a heading such as:_
+---
 
-### Creating a Project  
-_(Insert screenshot and brief caption)_
+## Program Screenshots
 
-### Adding and Completing Tasks  
-_(Insert screenshot and caption)_
+### Creating a Project
 
-### Filtering by Task Type  
-_(Insert screenshot and caption)_
+![Creating a Project](screenshots/screenshot_create_project.png)
 
-### Project Summary Report  
-_(Insert screenshot and caption)_
+---
+
+### Adding a Task to a Project
+
+![Adding a Task](screenshots/screenshot_add_task.png)
+
+---
+
+### Marking a Task as Completed
+
+![Marking a Task as Completed](screenshots/screenshot_mark_completed.png)
+
+---
+
+### Filtering Tasks by Type
+
+![Filtering Tasks](screenshots/screenshot_filter_task_type.png)
+
+---
+
+### Project Summary Report
+
+![Project Summary Report](screenshots/screenshot_summary_report.png)
 
 ---
 
@@ -50,7 +68,7 @@ To the best of my knowledge, the only elements I used that weren't covered in th
 
 I adopted these solutions after encountering issues with user input that could cause the program to behave unexpectedly or crash. For instance, to ensure that a string contained only digits, I used a regular expression like `input.matches("\\d+")`, which I found through resources such as Stack Overflow ([source](https://stackoverflow.com/questions/40561012/method-to-see-if-string-contains-all-digits?utm_source=chatgpt.com)). Similarly, to check if a string was empty, I employed `input.isEmpty()`, a straightforward and efficient method ([source](https://stackoverflow.com/questions/14721397/checking-if-a-string-is-empty-or-null-in-java?utm_source=chatgpt.com)).
 
-These methods were not covered in the course content, but I found them necessary to handle specific input validation scenarios effectively. I discovered them through online research, primarily Stack Overflow, as part of my iterative development and debugging process.
+These methods may not have been covered in the course content, but I found them necessary to handle specific input validation scenarios effectively. I discovered them through online research, primarily Stack Overflow, as part of my iterative development and debugging process.
 
 ---
 
