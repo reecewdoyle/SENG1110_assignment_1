@@ -221,12 +221,14 @@ Output:
 
 ### ❌ Deductions
 
-| Reason                          | Description                    | Penalty |
-|---------------------------------|--------------------------------|---------|
-| Disallowed Topics               | Arrays, exceptions used        | -20     |
-| Compilation/Runtime Errors      | N/A                            | -       |
-| Incorrect Filenames             | N/A                            | -       |
-| Late Submission                 | N/A                            | -       |
+
+| Reason                          | Description                    | Penalty | Status         |
+|---------------------------------|--------------------------------|---------|----------------|
+| Disallowed Topics               | Arrays, exceptions used        | -20     | Not applied    |
+| Compilation/Runtime Errors      | Each compilation/runtime error | -3 each | Not present    |
+| Incorrect Filenames             | File names not matching spec   | -2 each | Not present    |
+| Late Submission                 | Per day                        | -10%/day| Not late       |
+
 
 ---
 
