@@ -151,3 +151,102 @@ Output:
     - [x] Non-integer inputs for ID's, unrecognised project/task types, and unrecognised menu options trigger re-prompting
     - [x] Menu re-displays after each action until the user exits.
     
+
+
+---------------------------------------------------------------------------------
+## 📝 Assignment 1 Feedback – SENG1110 (Semester 1, 2025)
+
+**Student Name**: Reece Doyle  
+**Marker**: Baraa  
+**Total Mark**: **80 / 100**
+
+---
+
+### 📦 Program Correctness (75 Marks)
+
+#### ✅ Task Class (10/10)
+| Criteria             | Comments                                                   | Marks |
+|----------------------|------------------------------------------------------------|-------|
+| Attributes           | All required private variables present                     | 3/3   |
+| Methods              | Constructor initialises all fields; all getters/setters correct | 4/4   |
+| Design Compliance    | Full encapsulation; taskType normalized to uppercase       | 3/3   |
+
+#### ⚠️ Project Class (12/15)
+| Criteria             | Comments                                                   | Marks |
+|----------------------|------------------------------------------------------------|-------|
+| Attributes           | All defined as private                                     | 3/3   |
+| Methods              | `addTask`, `removeTask`, `markTaskAsCompleted` should be moved from `UserInterface` to `Project` | 3/6   |
+| Design Compliance    | Capacity limits enforced without arrays; task handling correct | 6/6   |
+
+#### ⚠️ UserInterface Class (16/20)
+| Criteria             | Comments                                                   | Marks |
+|----------------------|------------------------------------------------------------|-------|
+| Attributes           | All required attributes (`project1-3`, `scanner`) present  | 2/2   |
+| Menu System          | All menu options function as expected                      | 5/5   |
+| Input Validation     | Duplicate IDs, invalid input, re-prompts handled correctly | 5/5   |
+| Design Compliance    | Should not access `Task` directly (e.g., `getTask1()...`)  | 4/8   |
+
+---
+
+### ⚙️ Core Functionality (35 Marks)
+
+| Feature                        | Comments                                          | Marks |
+|--------------------------------|--------------------------------------------------|-------|
+| Add/Remove Projects            | Max 3 projects; unique IDs; removal cleans tasks | 7/7   |
+| Add/Remove Tasks               | Capacity rules followed; unique per-project IDs  | 6/6   |
+| Mark Tasks Completed           | Updates status; handles invalid IDs              | 3/3   |
+| Display Projects               | Shows all details with correct formatting        | 5/5   |
+| Filter Tasks by Type           | Case-insensitive, project headers shown          | 6/6   |
+| 🔻 Duration Summary            | Incomplete or not working correctly              | 4/8   |
+
+---
+
+### 📄 PDF Report (15 Marks)
+
+| Criteria                        | Comments                                          | Marks |
+|--------------------------------|--------------------------------------------------|-------|
+| Content Completeness           | Time logs/screenshots lacking detail             | 4/8   |
+| Class Relationships            | Project–Task (composition) fine; UI–Task access incorrect | 2/7   |
+
+---
+
+### ✅ Code Quality & Comments (5 Marks)
+
+| Criteria             | Comments                          | Marks |
+|----------------------|-----------------------------------|-------|
+| Readability          | Clear variable/method names, UI prompts | 3/3   |
+| Documentation        | Inline comments explain logic     | 2/2   |
+
+---
+
+### ❌ Deductions
+
+| Reason                          | Description                    | Penalty |
+|---------------------------------|--------------------------------|---------|
+| Disallowed Topics               | Arrays, exceptions used        | -20     |
+| Compilation/Runtime Errors      | N/A                            | -       |
+| Incorrect Filenames             | N/A                            | -       |
+| Late Submission                 | N/A                            | -       |
+
+---
+
+### 🧠 Marker Summary
+
+- Your logic and structure are solid, and the project mostly meets expectations.
+- Main issue: task-handling logic (add/remove/complete) should be **in the `Project` class**, not `UserInterface`.
+- There is **direct access to `Task` objects** from the UI, which breaks encapsulation.
+- `displayProjectSummary()` is incomplete or not functioning as expected.
+- Report content was light on screenshots and incorrectly described class relationships.
+
+---
+
+## 🔧 TODO – Post-Feedback Fixes (May 2025)
+
+- [ ] Move `addTask`, `removeTask`, and `markTaskAsCompleted` methods into `Project.java`
+- [ ] Refactor `UserInterface.java` to **delegate task management to `Project`**
+- [ ] Fix `displayProjectSummary()` to:
+  - [ ] Include all three projects
+  - [ ] Display correct averages per task type
+  - [ ] Ensure consistent formatting
+- [ ] Confirm no direct access to `Task` objects from UI
+- [ ] Commit changes and link to lecturer via Canvas comment
