@@ -42,7 +42,7 @@ public class UserInterface {
         scannerInput = new Scanner(System.in);
 
         // Optional starter data
-        // seedDummyData();
+        seedDummyData();
 
         int choice;
 
@@ -120,86 +120,86 @@ public class UserInterface {
  * Loads dummy data into the system for testing and demonstration purposes.
  * Creates 3 sample projects (Small, Medium, Large), each with preset tasks.
  */
-// private void seedDummyData() {
-//   // --- Project 1: Small ---
-//   Project p1 = new Project();
-//   p1.setProjectId(101);
-//   p1.setProjectName("Apollo");
-//   p1.setProjectType("Small");
+private void seedDummyData() {
+  // --- Project 1: Small ---
+  Project p1 = new Project();
+  p1.setProjectId(101);
+  p1.setProjectName("Apollo");
+  p1.setProjectType("Small");
 
-//   Task t1 = new Task();
-//   t1.setTaskId(1);
-//   t1.setDescription("Initial planning");
-//   t1.setTaskType('A'); // Admin
-//   t1.setTaskDuration(3);
-//   t1.setCompleted(true);
+  Task t1 = new Task();
+  t1.setTaskId(1);
+  t1.setDescription("Initial planning");
+  t1.setTaskType('A'); // Admin
+  t1.setTaskDuration(3);
+  t1.setCompleted(true);
 
-//   p1.setTask1(t1); // Small project only gets 1 task
+  p1.setTask1(t1); // Small project only gets 1 task
 
-//   // --- Project 2: Medium ---
-//   Project p2 = new Project();
-//   p2.setProjectId(102);
-//   p2.setProjectName("Hermes");
-//   p2.setProjectType("Medium");
+  // --- Project 2: Medium ---
+  Project p2 = new Project();
+  p2.setProjectId(102);
+  p2.setProjectName("Hermes");
+  p2.setProjectType("Medium");
 
-//   Task t2 = new Task();
-//   t2.setTaskId(2);
-//   t2.setDescription("Setup network");
-//   t2.setTaskType('L'); // Logistics
-//   t2.setTaskDuration(5);
-//   t2.setCompleted(false);
+  Task t2 = new Task();
+  t2.setTaskId(2);
+  t2.setDescription("Setup network");
+  t2.setTaskType('L'); // Logistics
+  t2.setTaskDuration(5);
+  t2.setCompleted(false);
 
-//   Task t3 = new Task();
-//   t3.setTaskId(3);
-//   t3.setDescription("Admin briefing");
-//   t3.setTaskType('A'); // Admin
-//   t3.setTaskDuration(2);
-//   t3.setCompleted(true);
+  Task t3 = new Task();
+  t3.setTaskId(3);
+  t3.setDescription("Admin briefing");
+  t3.setTaskType('A'); // Admin
+  t3.setTaskDuration(2);
+  t3.setCompleted(true);
 
-//   p2.setTask1(t2);
-//   p2.setTask2(t3);
+  p2.setTask1(t2);
+  p2.setTask2(t3);
 
-//   // --- Project 3: Large ---
-//   Project p3 = new Project();
-//   p3.setProjectId(103);
-//   p3.setProjectName("Zeus");
-//   p3.setProjectType("Large");
+  // --- Project 3: Large ---
+  Project p3 = new Project();
+  p3.setProjectId(103);
+  p3.setProjectName("Zeus");
+  p3.setProjectType("Large");
 
-//   Task t4 = new Task();
-//   t4.setTaskId(4);
-//   t4.setDescription("Logistics sync");
-//   t4.setTaskType('L');
-//   t4.setTaskDuration(6);
-//   t4.setCompleted(false);
+  Task t4 = new Task();
+  t4.setTaskId(4);
+  t4.setDescription("Logistics sync");
+  t4.setTaskType('L');
+  t4.setTaskDuration(6);
+  t4.setCompleted(false);
 
-//   Task t5 = new Task();
-//   t5.setTaskId(5);
-//   t5.setDescription("System config");
-//   t5.setTaskType('S'); // Support
-//   t5.setTaskDuration(4);
-//   t5.setCompleted(false);
+  Task t5 = new Task();
+  t5.setTaskId(5);
+  t5.setDescription("System config");
+  t5.setTaskType('S'); // Support
+  t5.setTaskDuration(4);
+  t5.setCompleted(false);
 
-//   Task t6 = new Task();
-//   t6.setTaskId(6);
-//   t6.setDescription("Admin approvals");
-//   t6.setTaskType('A');
-//   t6.setTaskDuration(3);
-//   t6.setCompleted(true);
+  Task t6 = new Task();
+  t6.setTaskId(6);
+  t6.setDescription("Admin approvals");
+  t6.setTaskType('A');
+  t6.setTaskDuration(3);
+  t6.setCompleted(true);
 
-//   p3.setTask1(t4);
-//   p3.setTask2(t5);
-//   p3.setTask3(t6);
+  p3.setTask1(t4);
+  p3.setTask2(t5);
+  p3.setTask3(t6);
 
-//   // Assign projects to the top-level project slots
-//   project1 = p1;
-//   project2 = p2;
-//   project3 = p3;
+  // Assign projects to the top-level project slots
+  project1 = p1;
+  project2 = p2;
+  project3 = p3;
 
-//   System.out.println("Dummy data loaded.");
-// }
+  System.out.println("Dummy data loaded.");
+}
 
 // -------------------------------------------------------------------------
-// CREATE NEW PROJECT
+// 1. CREATE NEW PROJECT
 // -------------------------------------------------------------------------
 
 /**
@@ -290,7 +290,7 @@ private void createProject() {
 }
 
 // -------------------------------------------------------------------------
-// REMOVE PROJECT
+// 2. REMOVE PROJECT
 // -------------------------------------------------------------------------
 
 /**
@@ -352,7 +352,7 @@ private void removeProject() {
 }
 
 // -------------------------------------------------------------------------
-// ADD TASK TO PROJECT
+// 3. ADD TASK TO PROJECT
 // -------------------------------------------------------------------------
 
 /**
@@ -360,405 +360,121 @@ private void removeProject() {
  * Ensures the project exists, has space for tasks, and all inputs are valid.
  */
 private void addTask() {
-  if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("\nThere are no saved Projects to add a task to.");
-      return;
-  }
+    if (project1 == null && project2 == null && project3 == null) {
+        System.out.println("\nThere are no saved Projects to add a task to.");
+        return;
+    }
+        int id = 0;
+    boolean projectSelected = false;
+    Project workingProject = null;
 
-  int id = 0;
-  boolean projectSelected = false;
-  Project workingProject = null;
+    // Prompt user to select a project by ID
+    do {
+        System.out.print("\nEnter the Project ID to add a task to: ");
 
-  // Prompt user to select a project by ID
-  do {
-      System.out.print("\nEnter the Project ID to add a task to: ");
+        if (scannerInput.hasNextInt()) {
+            id = scannerInput.nextInt();
+            scannerInput.nextLine();
 
-      if (scannerInput.hasNextInt()) {
-          id = scannerInput.nextInt();
-          scannerInput.nextLine();
+            if (id > 0) {
+                if (project1 != null && project1.getProjectId() == id) {
+                    workingProject = project1;
+                    projectSelected = true;
+                } else if (project2 != null && project2.getProjectId() == id) {
+                    workingProject = project2;
+                    projectSelected = true;
+                } else if (project3 != null && project3.getProjectId() == id) {
+                    workingProject = project3;
+                    projectSelected = true;
+                } else {
+                    System.out.println("No project with that ID exists.");
+                }
+            } else {
+                System.out.println("Project ID must be a positive whole number.");
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a positive whole number.");
+            scannerInput.next(); // Clear invalid token
+        }
+    } while (!projectSelected);
 
-          if (id > 0) {
-              if (project1 != null && project1.getProjectId() == id) {
-                  workingProject = project1;
-                  projectSelected = true;
-              } else if (project2 != null && project2.getProjectId() == id) {
-                  workingProject = project2;
-                  projectSelected = true;
-              } else if (project3 != null && project3.getProjectId() == id) {
-                  workingProject = project3;
-                  projectSelected = true;
-              } else {
-                  System.out.println("No project with that ID exists.");
-              }
-          } else {
-              System.out.println("Project ID must be a positive whole number.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a positive whole number.");
-          scannerInput.next(); // Clear invalid token
-      }
-  } while (!projectSelected);
+    System.out.println("\nSelected Project: " + workingProject.getProjectName());
+    System.out.println("Project Type: " + workingProject.getProjectType());
 
-  System.out.println("\nSelected Project: " + workingProject.getProjectName());
-  System.out.println("Project Type: " + workingProject.getProjectType());
+    switch (workingProject.getProjectType()) {
+        case "Small":
+            System.out.println("This project allows only 1 task.");
+            break;
+        case "Medium":
+            System.out.println("This project allows up to 2 tasks.");
+            break;
+        case "Large":
+            System.out.println("This project allows up to 3 tasks.");
+            break;
+    }
 
-  switch (workingProject.getProjectType()) {
-      case "Small":
-          System.out.println("This project allows only 1 task.");
-          break;
-      case "Medium":
-          System.out.println("This project allows up to 2 tasks.");
-          break;
-      case "Large":
-          System.out.println("This project allows up to 3 tasks.");
-          break;
-  }
+    // Check if there is room to add a task
+    if (
+        (workingProject.getProjectType().equals("Small") && workingProject.getTask1() != null) ||
+        (workingProject.getProjectType().equals("Medium") && workingProject.getTask1() != null && workingProject.getTask2() != null) ||
+        (workingProject.getProjectType().equals("Large") && workingProject.getTask1() != null && workingProject.getTask2() != null && workingProject.getTask3() != null)
+    ) {
+        System.out.println("\nNo available task slots in this project.");
+        return;
+    }
+        // Task ID input and validation
+    int taskId = 0;
+    boolean validTaskId = false;
 
-  // Check if there is room to add a task
-  if (
-      (workingProject.getProjectType().equals("Small") && workingProject.getTask1() != null) ||
-      (workingProject.getProjectType().equals("Medium") && workingProject.getTask1() != null && workingProject.getTask2() != null) ||
-      (workingProject.getProjectType().equals("Large") && workingProject.getTask1() != null && workingProject.getTask2() != null && workingProject.getTask3() != null)
-  ) {
-      System.out.println("\nNo available task slots in this project.");
-      return;
-  }
-  // Task ID input and validation
-  int taskId = 0;
-  boolean validTaskId = false;
+    do {
+        System.out.print("\nEnter Task ID (1-9): ");
 
-  do {
-      System.out.print("\nEnter Task ID (1-9): ");
+        if (scannerInput.hasNextInt()) {
+            taskId = scannerInput.nextInt();
+            scannerInput.nextLine();
 
-      if (scannerInput.hasNextInt()) {
-          taskId = scannerInput.nextInt();
-          scannerInput.nextLine();
+            if (taskId > 0 && taskId <= 9) {
+                boolean exists = false;
 
-          if (taskId > 0 && taskId <= 9) {
-              boolean exists = false;
+                if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) exists = true;
+                if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) exists = true;
+                if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) exists = true;
 
-              if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) exists = true;
-              if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) exists = true;
-              if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) exists = true;
+                if (exists) {
+                    System.out.println("A Task with that ID already exists in this project.");
+                } else {
+                    validTaskId = true;
+                }
+            } else {
+                System.out.println("Task ID must be between 1 and 9.");
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a number.");
+            scannerInput.next();
+        }
+    } while (!validTaskId);
 
-              if (exists) {
-                  System.out.println("A Task with that ID already exists in this project.");
-              } else {
-                  validTaskId = true;
-              }
-          } else {
-              System.out.println("Task ID must be between 1 and 9.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a number.");
-          scannerInput.next();
-      }
-  } while (!validTaskId);
+    // Create and assign task
+    Task newTask = new Task();
+    newTask.setTaskId(taskId);
+    newTask.setDescription(description);
+    newTask.setTaskType(taskType);
+    newTask.setTaskDuration(duration);
+    newTask.setCompleted(false);
 
-  // Task description input
-  String description;
-  do {
-      System.out.print("\nEnter task description: ");
-      description = scannerInput.nextLine().trim();
-      if (description.isEmpty()) {
-          System.out.println("Description cannot be empty.");
-      }
-  } while (description.isEmpty());
+    if (workingProject.getTask1() == null) {
+        workingProject.setTask1(newTask);
+    } else if (workingProject.getTask2() == null) {
+        workingProject.setTask2(newTask);
+    } else if (workingProject.getTask3() == null) {
+        workingProject.setTask3(newTask);
+    } else {
+        System.out.println("\nError: No available task slots in this project.");
+    }
 
-  // Task type input and validation
-  char taskType = ' ';
-  boolean validTaskType = false;
 
-  do {
-      System.out.print("\nEnter task type (A = Admin, S = Support, L = Logistics): ");
-      String input = scannerInput.nextLine().trim();
-
-      if (input.isEmpty()) {
-        System.out.println("Task type cannot be empty. Please enter A, S, or L.");
-        continue;
-      }
-
-      input = input.toUpperCase();
-
-      if (input.length() == 1) {
-          taskType = input.charAt(0);
-          if (taskType == 'A' || taskType == 'S' || taskType == 'L') {
-              validTaskType = true;
-          } else {
-              System.out.println("Invalid task type. Please enter A, S, or L.");
-          }
-      } else {
-          System.out.println("Please enter a single letter: A, S, or L.");
-      }
-  } while (!validTaskType);
-
-  // Task duration input
-  int duration = 0;
-  boolean validDuration = false;
-
-  do {
-      System.out.print("\nEnter task duration in hours (positive whole number): ");
-      if (scannerInput.hasNextInt()) {
-          duration = scannerInput.nextInt();
-          scannerInput.nextLine();
-
-          if (duration > 0) {
-              validDuration = true;
-          } else {
-              System.out.println("Duration must be greater than 0.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a number.");
-          scannerInput.next();
-      }
-  } while (!validDuration);
-
-  // Create and assign task
-  Task newTask = new Task();
-  newTask.setTaskId(taskId);
-  newTask.setDescription(description);
-  newTask.setTaskType(taskType);
-  newTask.setTaskDuration(duration);
-  newTask.setCompleted(false);
-
-  if (workingProject.getTask1() == null) {
-      workingProject.setTask1(newTask);
-  } else if (workingProject.getTask2() == null) {
-      workingProject.setTask2(newTask);
-  } else if (workingProject.getTask3() == null) {
-      workingProject.setTask3(newTask);
-  } else {
-      System.out.println("\nError: No available task slots in this project.");
-  }
 }
-
-// -------------------------------------------------------------------------
-// MARK TASK AS COMPLETED
-// -------------------------------------------------------------------------
-
-/**
- * Marks a task as completed within a selected project.
- * Prompts the user to select a project by ID, then a task within that project.
- * Validates all input to ensure only valid IDs are accepted.
- * User can enter -1 at the task ID prompt to return to the main menu.
- */
-private void markTaskAsCompleted() {
-  // Check if there are any projects to work with
-  if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("\nThere are no saved projects to mark off tasks in.");
-      return;
-  }
-
-  int id = 0;
-  boolean projectSelected = false;
-  Project workingProject = null;
-
-  // ------------------ Select Project ------------------
-  // Prompt user for a valid project ID
-  do {
-      System.out.print("\nEnter the Project ID where the completed task is located: ");
-
-      if (scannerInput.hasNextInt()) {
-          id = scannerInput.nextInt();
-          scannerInput.nextLine(); // Clear newline
-
-          if (id > 0) {
-              // Check each project slot
-              if (project1 != null && project1.getProjectId() == id) {
-                  workingProject = project1;
-                  projectSelected = true;
-              } else if (project2 != null && project2.getProjectId() == id) {
-                  workingProject = project2;
-                  projectSelected = true;
-              } else if (project3 != null && project3.getProjectId() == id) {
-                  workingProject = project3;
-                  projectSelected = true;
-              } else {
-                  System.out.println("No project with that ID exists.");
-              }
-          } else {
-              System.out.println("Project ID must be a positive whole number.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a number.");
-          scannerInput.next(); // Clear invalid input
-      }
-  } while (!projectSelected);
-
-  // ------------------ Display Project Info ------------------
-  System.out.println("\nSelected Project: " + workingProject.getProjectName());
-  System.out.println("Project Type: " + workingProject.getProjectType());
-
-  switch (workingProject.getProjectType()) {
-      case "Small":
-          System.out.println("This project allows only 1 task.");
-          break;
-      case "Medium":
-          System.out.println("This project allows up to 2 tasks.");
-          break;
-      case "Large":
-          System.out.println("This project allows up to 3 tasks.");
-          break;
-  }
-
-  // ------------------ Check for Tasks ------------------
-  if (workingProject.getTask1() == null &&
-      workingProject.getTask2() == null &&
-      workingProject.getTask3() == null) {
-      System.out.println("\nThis project has no tasks to be marked as completed.");
-      return;
-  }
-
-  // ------------------ Select Task ------------------
-  int taskId = 0;
-  boolean taskFound = false;
-
-  do {
-      System.out.print("\nEnter the Task ID to be marked as completed (-1 to return to menu): ");
-
-      if (scannerInput.hasNextInt()) {
-          taskId = scannerInput.nextInt();
-          scannerInput.nextLine(); // Clear newline
-
-          if (taskId == -1) {
-              // User chose to exit
-              System.out.println("\nReturning to main menu...");
-              return;
-          }
-
-          if (taskId > 0 && taskId <= 9) {
-              // Check each task slot for matching ID
-              if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
-                  workingProject.getTask1().setCompleted(true);
-                  System.out.println("\nTask marked as completed.");
-                  taskFound = true;
-              } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
-                  workingProject.getTask2().setCompleted(true);
-                  System.out.println("\nTask marked as completed.");
-                  taskFound = true;
-              } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
-                  workingProject.getTask3().setCompleted(true);
-                  System.out.println("\nTask marked as completed.");
-                  taskFound = true;
-              } else {
-                  System.out.println("No task with that ID exists in this project.");
-              }
-          } else {
-              System.out.println("Task ID must be a number between 1 and 9.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a number.");
-          scannerInput.nextLine(); // Clear invalid input
-      }
-  } while (!taskFound);
-}
-
-// -------------------------------------------------------------------------
-// REMOVE TASK
-// -------------------------------------------------------------------------
-
-/**
- * Removes a task from a selected project based on task ID.
- * Prompts the user to choose a project and task to delete.
- * Validates all user inputs and ensures the task exists before removing it.
- * User can enter -1 at the Task ID prompt to return to the menu.
- */
-private void removeTask() {
-  // Check if there are any projects to work with
-  if (project1 == null && project2 == null && project3 == null) {
-      System.out.println("\nThere are no saved projects to remove tasks from.");
-      return;
-  }
-
-  int id = 0;
-  boolean projectSelected = false;
-  Project workingProject = null;
-
-  // ------------------ Select Project ------------------
-  do {
-      System.out.print("\nEnter the Project ID where the task to be deleted is located: ");
-
-      if (scannerInput.hasNextInt()) {
-          id = scannerInput.nextInt();
-          scannerInput.nextLine();
-
-          if (id > 0) {
-              if (project1 != null && project1.getProjectId() == id) {
-                  workingProject = project1;
-                  projectSelected = true;
-              } else if (project2 != null && project2.getProjectId() == id) {
-                  workingProject = project2;
-                  projectSelected = true;
-              } else if (project3 != null && project3.getProjectId() == id) {
-                  workingProject = project3;
-                  projectSelected = true;
-              } else {
-                  System.out.println("No project with that ID exists.");
-              }
-          } else {
-              System.out.println("Project ID must be a positive whole number.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a whole positive number.");
-          scannerInput.next(); // Clear invalid input
-      }
-  } while (!projectSelected);
-
-  // ------------------ Display Project Info ------------------
-  System.out.println("\nSelected Project: " + workingProject.getProjectName());
-  System.out.println("Project Type: " + workingProject.getProjectType());
-
-  // Check if any tasks exist in the project
-  if (workingProject.getTask1() == null &&
-      workingProject.getTask2() == null &&
-      workingProject.getTask3() == null) {
-      System.out.println("\nThis project has no tasks to remove.");
-      return;
-  }
-
-  int taskId = 0;
-  boolean taskRemoved = false;
-
-  // ------------------ Select Task to Remove ------------------
-  do {
-      System.out.print("\nEnter Task ID to remove (1-9, or -1 to return to menu): ");
-
-      if (scannerInput.hasNextInt()) {
-          taskId = scannerInput.nextInt();
-          scannerInput.nextLine(); // Clear newline
-
-          if (taskId == -1) {
-              System.out.println("\nReturning to main menu...");
-              return;
-          }
-
-          if (taskId > 0 && taskId <= 9) {
-              // Check each task slot
-              if (workingProject.getTask1() != null && workingProject.getTask1().getTaskId() == taskId) {
-                  workingProject.setTask1(null);
-                  System.out.println("\nTask removed.");
-                  taskRemoved = true;
-              } else if (workingProject.getTask2() != null && workingProject.getTask2().getTaskId() == taskId) {
-                  workingProject.setTask2(null);
-                  System.out.println("\nTask removed.");
-                  taskRemoved = true;
-              } else if (workingProject.getTask3() != null && workingProject.getTask3().getTaskId() == taskId) {
-                  workingProject.setTask3(null);
-                  System.out.println("\nTask removed.");
-                  taskRemoved = true;
-              } else {
-                  System.out.println("No task with that ID exists.");
-              }
-          } else {
-              System.out.println("Task ID must be a number between 1 and 9.");
-          }
-      } else {
-          System.out.println("Invalid input. Please enter a whole positive number.");
-          scannerInput.next(); // Clear invalid input
-      }
-  } while (!taskRemoved);
-}
-
+    
 // -------------------------------------------------------------------------
 // DISPLAY PROJECT DETAILS
 // -------------------------------------------------------------------------
